@@ -7,11 +7,10 @@ const Custominput = styled.div`
     align-items: center;
     width: ${({width}) => width || '100%'};
     padding: 0.5rem 0.5rem 0.5rem 2.4rem;
-    height: ${({height}) => height || '6.5rem'};
+    height: ${({height}) => height || '5.8rem'};
     background-color: #fff;
     border: 0.1rem solid #fff;
-    border-radius: 3.4rem;
-
+    border-radius: ${({borr}) => borr || '2.9rem'};
 
     .custom-input__label {
         position: relative;
@@ -27,7 +26,7 @@ const Custominput = styled.div`
     .custom-input__label-text {
         transition: top .3s ease-in-out,transform .3s ease-in-out,color .3s ease-in-out,font-size .3s ease-in-out;
         line-height: 1.5;
-        font-family: inherit;
+        font-family: FreeSans;
         font-size: 1.4rem;
         letter-spacing: -.01em;
         position: absolute;
@@ -41,7 +40,7 @@ const Custominput = styled.div`
     .custom-input__input {
         transition: transform .3s ease-in-out;
         line-height: 1.5;
-        font-family: inherit, sans-serif;
+        font-family: FreeSans, sans-serif;
         font-size: ${({fsz}) => fsz || '1.4rem'};
         letter-spacing: -.01em;
         display: block;
@@ -52,9 +51,13 @@ const Custominput = styled.div`
         border: none;
         outline: none;
     }
+    .custom-input__field--is-textarea .custom-input__input {
+        min-height: 13rem;
+        padding-top: 1.5rem;
+    }
 `;
 
-function InputComponent({text, button, type, width, height, fsz}) {
+function InputComponent({text, button, type, width, height, fsz, textarea, input, name, borr}) {
 
     const customInput = useRef(null)
     const customInputText = useRef(null)
@@ -99,11 +102,15 @@ function InputComponent({text, button, type, width, height, fsz}) {
     }
     return(
         <>
-            <Custominput fsz={fsz} width={width} height={height} onFocus={focusInput} onBlur={blurInput} ref={customInput}>
-                    <label className="custom-input__label">
+            <Custominput fsz={fsz} width={width} height={height} onFocus={focusInput} onBlur={blurInput} ref={customInput} borr={borr}>
+                    {input && <label className="custom-input__label">
                         <span className="custom-input__label-text" ref={customInputText}>{text}*</span>
-                        <input className="custom-input__input" name="email" ref={customInputInput} type={type} required="" aria-invalid="false" />
-                    </label>
+                        <input className="custom-input__input" name={name} ref={customInputInput} type={type} required="" aria-invalid="false" />
+                    </label>}
+                    {textarea && <label className="custom-input__label custom-input__field--is-textarea">
+                        <span className="custom-input__label-text" ref={customInputText}>{text}*</span>
+                        <textarea className="custom-input__input" name={name} ref={customInputInput} required="" aria-invalid="false"/>
+                    </label >}
                     {button}
             </Custominput>
         </>

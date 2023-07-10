@@ -2,6 +2,10 @@
   font-family: FreeSans;
   src: url(fonts/FreeSans.ttf) format("truetype");
 }
+/* @font-face {
+  font-family: FreeSansBold;
+  src: url(fonts/FreeSansBold.ttf) format("truetype");
+} */
 @font-face {
   font-family: NeueMachina-Regular;
   src: url(fonts/NeueMachina-Regular.otf) ;
@@ -10,6 +14,22 @@
   font-family: NeueMachina-Light;
   src: url(fonts/NeueMachina-Light.otf) ;
 }
+@font-face {
+  font-family: NeueMachina-Ultrabold;
+  src: url(fonts/NeueMachina-Ultrabold.otf) ;
+}
+@font-face {
+  font-family: 'FreeSansMedium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('fonts/FreeSans.woff'), url('fonts/FreeSans.woff') format('woff');
+  }
+@font-face {
+  font-family: 'FreeSansBold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('fonts/FreeSansBold.woff'), url('fonts/FreeSansBold.woff') format('woff');
+  }
 *{
   font-family:NeueMachina-Light, sans-serif;
   box-sizing: border-box;
@@ -51,7 +71,7 @@ header {
 }
 body {
   line-height: 1.5;
-  font-family: neue-haas-grot-text,sans-serif;
+  font-family: neue-haas-grot-text, sans-serif;
   font-size: 1.4rem;
   letter-spacing: -.01em;
   margin: 0;

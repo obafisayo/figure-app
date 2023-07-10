@@ -18,7 +18,7 @@ const StyledPrimaryLinks = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 1.5rem 1.7rem 2.8rem 0rem;
+    padding: 1.5rem 1.7rem 1.5rem 0rem;
     cursor: pointer;
 
     :first-child {
@@ -35,13 +35,13 @@ const StyledPrimaryLinks = styled.div`
     line-height: 1.11;
     font-family: inherit,serif;
     font-feature-settings: "ss12" on;
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     font-weight: 500;
     letter-spacing: -.01em;
     text-transform: uppercase;
     content: counter(number__primary-links-counter,decimal-leading-zero);
     display: block;
-    margin-right: 3.7rem;
+    margin-right: 3rem;
     }
     .primary-link-label {
     transition: background-size .3s ease-in-out;
@@ -51,7 +51,20 @@ const StyledPrimaryLinks = styled.div`
     background-position: 100% 100%,0 100%;
     background-repeat: no-repeat;
     line-height: .8;
-}
+    }
+    @media screen and (min-width: 768px){
+        padding: 1.5rem 1.7rem 2.5rem 0rem;
+        .footer__primary-link {
+            font-size: 5.2rem;
+            padding: 3rem 0;
+        }
+        :before {
+            font-size: 2.4rem;
+            position: relative;
+            top: -0.2rem;
+            margin-right: 3rem;
+        }
+    }
 `;
 const S = styled.div`
     display: flex;
@@ -59,7 +72,7 @@ const S = styled.div`
     width: 95dvw;
 `;
 
-function PrimaryLinks({title, text, icon, paddingTop, borderBottom, borderTop, slide, fsz, mfsz, fw, height, ls, link, to}) {
+function PrimaryLinks({title, text, icon, paddingTop, borderBottom, borderTop, slide, fsz, mfsz, fw, height, ls, link, to, unslide}) {
     const [hover, setHover] = useState(false)
     function onEnter() {
         setHover(true)
@@ -68,7 +81,7 @@ function PrimaryLinks({title, text, icon, paddingTop, borderBottom, borderTop, s
         setHover(false)
     }
     
-    const thereisSliderSlide =  <Slider ls={ls} mfsz={mfsz} hovered={hover} fsz={fsz} fw={fw} height={height} slide text={text} /> 
+    const thereisSliderSlide =  <Slider ls={ls} mfsz={mfsz} hovered={hover} fsz={fsz} fw={fw} height={height} unslide={unslide} slide text={text} /> 
     const thereNoHover =  <Slider mfsz={mfsz} fsz={'3.4rem'} fw={'600'} height={'2px'} text={text} /> 
     const thereisIcon = <S>{thereisSliderSlide} <Svg hov={hover} plus /> </S>
 

@@ -1,0 +1,9 @@
+github access token = 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
+
+to git clone , we do = git clone https://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@github.com/obafisayo-alx/alx-zero_day.git
+
+git config --global user.email "sekaniisjoy@gmail.com"
+git config --global user.name "Your Name"
+git config --global user.email ""
+
+https://github.com/obafisayo-alx/zero_day.git

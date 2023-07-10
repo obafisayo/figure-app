@@ -23,16 +23,17 @@ const Newsletter = styled.section`
 
     .footer__newsletter-heading {
         line-height: 1.5;
-        font-family: inherit, sans-serif;
-        font-size:  22px;
-        font-weight: 600;
+        font-family: FreeSansMedium, sans-serif;
+        font-size: 1.9rem;
+        font-weight: 400;
         letter-spacing: -.01em;
         margin: 0 0 0.8rem;
     }
     .footer__newsletter-description {
         margin: 0 0 2.4rem;
-        font-size: 16px;
-        font-weight: 500;
+        font-family: FreeSans, sans-serif;
+        font-size: 1.7rem;
+        font-weight: 400;
     }
     .newsletter-form {
         width: 100%;
@@ -49,6 +50,12 @@ const Newsletter = styled.section`
     display: block;
     margin-top: 0em;
     }
+    @media screen and (min-width: 768px) {
+        .footer__newsletter-heading {
+            line-height: 1.1;
+            font-size: 2.2rem;
+        }
+    }
 `;
 function NewsletterMail({background, icon, paddingLeft, fsz, width}) {
     return (
@@ -57,7 +64,7 @@ function NewsletterMail({background, icon, paddingLeft, fsz, width}) {
                 <h1 className="footer__newsletter-heading">Keep up with us.</h1>
                 <p className="footer__newsletter-description">Get news, photos, events, and business updates</p>
                 <form className="newsletter-form footer__newsletter-component" aria-label="Subscribe to newsletter">
-                    <InputComponent fsz={fsz} text={'Email Address'} button={<Button fsz={fsz} text={'Sign Up'}/>} type={'email'}/>
+                    <InputComponent input fsz={fsz} text={'Email Address'} button={<Button fsz={fsz} text={'Sign Up'}/>} type={'email'}/>
                     <p id="footernewsletter-newsletter-form" className="newsletter-form__description" aria-live="polite"></p>
                     {icon}
                 </form>

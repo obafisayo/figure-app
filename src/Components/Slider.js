@@ -37,12 +37,19 @@ const SliderDiv = styled.button`
     }
     @media screen and (max-width: 860px) {
         font-size: ${({mfsz, fsz}) => mfsz || fsz};
+        :hover::after{
+            /* width: ${({unslide}) => unslide ? '0' : '0'}; */
+            ${({unslide}) => unslide ? 'width: 0;' : 'width: 100;'}
+        }
+        ::after{
+            width: ${({unslide}) => unslide ? '0' : '0'};
+        }
     }
 `;
-function Slider({text, icon, plus, arrowUpRight, arrowLeft, arrowRight, slide, ls, fsz, mfsz, fw, height, hovered}) {
+function Slider({text, icon, plus, arrowUpRight, arrowLeft, arrowRight, slide, ls, fsz, mfsz, fw, height, hovered, unslide}) {
     const {hover, onLeave, onEnter} = useContextState()
     return(
-        <SliderDiv slide={slide} fsz={fsz} fw={fw} mfsz={mfsz} ls={ls} height={height} onMouseEnter={onEnter} onMouseLeave={onLeave} hovered={hovered}>
+        <SliderDiv unslide={unslide} slide={slide} fsz={fsz} fw={fw} mfsz={mfsz} ls={ls} height={height} onMouseEnter={onEnter} onMouseLeave={onLeave} hovered={hovered}>
             {text}
             { icon && plus && <Svg plus hov={hover}/>}
             { icon && arrowUpRight && <Svg arrowUpRight hov={hover}/>}

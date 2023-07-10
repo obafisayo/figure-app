@@ -14,16 +14,16 @@ const StyledNav = styled.nav`
         width: 2rem;
     }
     .bi-youtube{
-        transform: scale(1.6);
+        transform: scale(1.4);
     }
     .bi-instagram{
-        transform: scale(1.2);
+        transform: scale(1);
     }
     .bi-linkedin{
-        transform: scale(1.3);
+        transform: scale(1.1);
     }
     .bi-twitter{
-        transform: scale(1.5);
+        transform: scale(1.3);
     }
     a{
     text-decoration: none;
