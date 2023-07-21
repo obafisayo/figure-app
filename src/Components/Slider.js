@@ -13,10 +13,10 @@ const SliderDiv = styled.button`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #0c0c0c;
+    color: ${({light}) => light? '#fff' : '#0c0c0c'} ;
     text-decoration: none;
     border: none;
-    background: linear-gradient(90deg,hsla(0,0%,5%,0),hsla(0,0%,5%,0)),linear-gradient(90deg,#0c0c0c,#0c0c0c);
+    background: ${({light}) => light? 'linear-gradient(90deg,hsla(0,0%,100%,0),hsla(0,0%,100%,0)),linear-gradient(90deg,#fff,#fff)' : 'linear-gradient(90deg,hsla(0,0%,5%,0),hsla(0,0%,5%,0)),linear-gradient(90deg,#0c0c0c,#0c0c0c)'};
     background-size: 100% 0.1rem,0 0.1rem;
     background-position: 100% 100%,0 100%;
     background-repeat: no-repeat;
@@ -30,7 +30,7 @@ const SliderDiv = styled.button`
         position: absolute;
         bottom: 0px; left: 0;
         width: ${({hovered}) => hovered ? '100%' : '0'};
-        border-bottom: ${({height}) => height || '1px'} solid black;
+        border-bottom: ${({height}) => height || '1px'} solid ${({bordercolor}) => bordercolor || 'black'};
     }
     :hover::after{
         width: ${({slide}) => slide ? '100%' : '0'};
@@ -38,7 +38,6 @@ const SliderDiv = styled.button`
     @media screen and (max-width: 860px) {
         font-size: ${({mfsz, fsz}) => mfsz || fsz};
         :hover::after{
-            /* width: ${({unslide}) => unslide ? '0' : '0'}; */
             ${({unslide}) => unslide ? 'width: 0;' : 'width: 100;'}
         }
         ::after{
@@ -46,10 +45,10 @@ const SliderDiv = styled.button`
         }
     }
 `;
-function Slider({text, icon, plus, arrowUpRight, arrowLeft, arrowRight, slide, ls, fsz, mfsz, fw, height, hovered, unslide}) {
+function Slider({text, icon, plus, arrowUpRight, arrowLeft, arrowRight, slide, ls, fsz, mfsz, fw, height, hovered, unslide, light, bordercolor}) {
     const {hover, onLeave, onEnter} = useContextState()
     return(
-        <SliderDiv unslide={unslide} slide={slide} fsz={fsz} fw={fw} mfsz={mfsz} ls={ls} height={height} onMouseEnter={onEnter} onMouseLeave={onLeave} hovered={hovered}>
+        <SliderDiv unslide={unslide} slide={slide} fsz={fsz} fw={fw} mfsz={mfsz} ls={ls} height={height} onMouseEnter={onEnter} onMouseLeave={onLeave} hovered={hovered} light={light} bordercolor={bordercolor}>
             {text}
             { icon && plus && <Svg plus hov={hover}/>}
             { icon && arrowUpRight && <Svg arrowUpRight hov={hover}/>}

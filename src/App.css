@@ -54,6 +54,11 @@ a:-webkit-any-link, Link:-webkit-any-Link{
   cursor: pointer;
   text-decoration: none;
 }
+video {
+  object-fit: contain;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
 img, svg {
   display: block;
 }

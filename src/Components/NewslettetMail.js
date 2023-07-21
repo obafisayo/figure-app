@@ -8,6 +8,7 @@ const Newsletter = styled.section`
     padding: 15px 0px 10px ${({paddingLeft}) => paddingLeft || '20px'};
     position: relative;
     z-index: 2;
+    color: ${({color}) => color || 'black'};
 
     ::after{
         content: '';
@@ -57,10 +58,10 @@ const Newsletter = styled.section`
         }
     }
 `;
-function NewsletterMail({background, icon, paddingLeft, fsz, width}) {
+function NewsletterMail({background, icon, paddingLeft, fsz, width, color}) {
     return (
         <>
-            <Newsletter width={width} background={background} paddingLeft={paddingLeft} className="footer__newsletter-container">
+            <Newsletter width={width} background={background} paddingLeft={paddingLeft} color={color} className="footer__newsletter-container">
                 <h1 className="footer__newsletter-heading">Keep up with us.</h1>
                 <p className="footer__newsletter-description">Get news, photos, events, and business updates</p>
                 <form className="newsletter-form footer__newsletter-component" aria-label="Subscribe to newsletter">
