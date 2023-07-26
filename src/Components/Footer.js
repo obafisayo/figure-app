@@ -9,6 +9,7 @@ import NewsletterMail from "./NewslettetMail";
 import Icon from "./Icons";
 import Slider from "./Slider";
 import ContactModal from "./ContactModal";
+import Totop from "./Totop";
 
 const StyledFooter = styled.footer`
     display: block;
@@ -225,19 +226,25 @@ function Footer(){
                     </div>
                     <div className="footer__right">
                         <nav className='number__primary-links' aria-label='Site Links'>
-                            <PrimaryLinks link to={'/about-us'} ls={'3px'} slide title={'About Us'} text={'ABOUT US'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide/>
-                            <PrimaryLinks link to={'/master-plan'} ls={'3px'} slide title={'Master-plan'} text={'MASTER PLAN'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide/>
-                            <PrimaryLinks link to={'/culture'} ls={'3px'} slide title={'Culture'} text={'CULTURE'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide/>
-                            <PrimaryLinks link to={'/careers'} ls={'3px'} slide title={'Carreers'} text={'CAREERS'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide/>
+                            <Totop
+                                component={
+                                    <>
+                                        <PrimaryLinks link to={'/about-us'} ls={'3px'} slide title={'About Us'} text={'ABOUT US'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide/>
+                                        <PrimaryLinks link to={'/master-plan'} ls={'3px'} slide title={'Master-plan'} text={'MASTER PLAN'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide/>
+                                        <PrimaryLinks link to={'/culture'} ls={'3px'} slide title={'Culture'} text={'CULTURE'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide/>
+                                        <PrimaryLinks link to={'/careers'} ls={'3px'} slide title={'Careers'} text={'CAREERS'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide/>
+                                    </>
+                                }
+                            />
                         </nav>
                     </div>
                 </div>
                 <div className="footer__bottom">
                     <nav className="footer__secondary-links" aria-label="Legal Site links">
                         <p className="footer__copyright">© Figure 2023</p>
-                        <Link className="footer__secondary-link" to="/terms-and-conditions">Terms & Conditions</Link>
-                        <Link className="footer__secondary-link" to="/privacy-policy">Privacy Policy</Link>
-                        <Link className="footer__secondary-link" to="/accessibility-statement">Accessibility Statement</Link>
+                        <Totop component={<Link className="footer__secondary-link" to="/terms-and-conditions">Terms & Conditions</Link>} />
+                        <Totop component={<Link className="footer__secondary-link" to="/privacy-policy">Privacy Policy</Link>} />
+                        <Totop component={<Link className="footer__secondary-link" to="/accessibility-statement">Accessibility Statement</Link>} /> 
                     </nav>
                 </div>
             </div>

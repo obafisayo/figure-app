@@ -3,6 +3,9 @@ import styled from "styled-components";
 import Video from "../Components/Video";
 import aiVideo from "../assets/aiVideo.mp4"
 import TextLoader from "../Components/TextLoader";
+import Image from "../Components/Image";
+import Humanoid_walking_tall  from "../assets/Humanoid_Walking_Mobile_-Tall-.webp"
+import Humanoid_walking  from "../assets/Humanoid_Walking.webp"
 
 const StyledMain = styled.main`
     display: block;
@@ -45,6 +48,7 @@ function Home() {
             <div>
                 <TextLoader/>
             </div>
+            <Image img1={Humanoid_walking_tall} img2={Humanoid_walking}/>
         </StyledMain>
     )
 }

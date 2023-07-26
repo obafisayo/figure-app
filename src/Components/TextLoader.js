@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
-import TextGradient from "./TextGradient";
+import TextGradient from "./TextGradient"
 
 const Styledsection = styled.section`
     position: relative;
@@ -41,19 +41,57 @@ const Styledsection = styled.section`
         transition-timing-function: linear;
         transform: scaleX(0);
     }
-
+    @media screen and (min-width: 768px){
+        margin: 15rem 0;
+        .section__anchor {
+            position: absolute;
+            top: -7.2rem;
+        }
+    }
 `;
 function TextLoader() {
+    const progressRef = useRef(null)
+
+    const [first, setFirst] = useState(true);
+    const [second, setSecond] = useState(false);
+    const [third, setThird] = useState(false);
+    useEffect(() => {
+        const progressRefEl = progressRef.current
+        const interval = setInterval(() => {
+            progressRefEl.classList.add("is-animating")
+        }, 90);
+        const intervalTwo = setInterval(() => {
+            progressRefEl.classList.remove("is-animating")
+            if (first) {
+                setFirst(false);
+                setSecond(true);
+                setThird(false);
+            } else if (second){
+                setFirst(false);
+                setSecond(false);
+                setThird(true);
+            } else if (third) {
+                setFirst(true);
+                setSecond(false);
+                setThird(false);
+            }
+        }, 5000);
+        // Cleanup the interval when the component unmounts
+        return () => {
+            clearInterval(interval);
+            clearInterval(intervalTwo);
+        };
+    }, [first, second, third]);
     return(
-        <Styledsection className="section rotating-text-module section--large-margin">
+        <Styledsection>
             <div id="rotating-title-component" className="section__anchor"></div>
             <div aria-live="polite" className="rotating-text-module__inner">
                 <div className="rotating-text-module__progress-bar">
-                    <div className="rotating-text-module__progress-bar-inner is-animating"></div>
+                    <div className="rotating-text-module__progress-bar-inner" ref={progressRef}></div>
                 </div>
-                <TextGradient isActive={true} text={"What if we were capable of "} gtext={"creating"} ntext={"a higher quality of life?"}/>
-                <TextGradient text={"What if we were capable of "} gtext={"repairing"} ntext={"our supply chain?"}/>
-                <TextGradient text={"What if we were capable of "} gtext={"supporting"} ntext={"emerging economies?"}/>
+                {first && <TextGradient activeness={first} text={"What if we were capable of "} gtext={"creating"} ntext={"a higher quality of life?"}/>}
+                {second && <TextGradient activeness={second} text={"What if we were capable of "} gtext={"repairing"} ntext={"our supply chain?"}/>}
+                {third && <TextGradient activeness={third} text={"What if we were capable of "} gtext={"supporting"} ntext={"emerging economies?"}/>}
             </div>
         </Styledsection>
     )

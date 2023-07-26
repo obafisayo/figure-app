@@ -62,11 +62,6 @@ video {
 img, svg {
   display: block;
 }
-/* img[Attributes ] {
-  width: 461px;
-  aspect-ratio: auto 461 / 69;
-  height: 69px;
-} */
 img {
   overflow-clip-margin: content-box;
   overflow: clip;

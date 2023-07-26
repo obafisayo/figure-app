@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Slider from "./Slider";
 import Svg from "./Svg";
 
-const StyledPrimaryLinks = styled.div`
+const StyledPrimaryLinks = styled.a`
     line-height: 1.11;
     font-family: inherit,serif;
     font-feature-settings: "ss12" on;
@@ -20,6 +20,7 @@ const StyledPrimaryLinks = styled.div`
     justify-content: flex-start;
     padding: 1.5rem 1.7rem 1.5rem 0rem;
     cursor: pointer;
+    text-decoration: none;
 
     :first-child {
         padding-top: ${({paddingTop}) => paddingTop? '2.5rem' : '0'};
@@ -42,6 +43,7 @@ const StyledPrimaryLinks = styled.div`
     content: counter(number__primary-links-counter,decimal-leading-zero);
     display: block;
     margin-right: 3rem;
+    color: #0c0c0c;
     }
     .primary-link-label {
     transition: background-size .3s ease-in-out;
@@ -51,18 +53,21 @@ const StyledPrimaryLinks = styled.div`
     background-position: 100% 100%,0 100%;
     background-repeat: no-repeat;
     line-height: .8;
+    color: #0c0c0c;
     }
     @media screen and (min-width: 768px){
         padding: 1.5rem 1.7rem 2.5rem 0rem;
         .footer__primary-link {
             font-size: 5.2rem;
             padding: 3rem 0;
+            color: #0c0c0c;
         }
         :before {
             font-size: 2.4rem;
             position: relative;
             top: -0.2rem;
             margin-right: 3rem;
+            color: #0c0c0c;
         }
     }
 `;
@@ -70,6 +75,7 @@ const S = styled.div`
     display: flex;
     justify-content: space-between;
     width: 95dvw;
+    color: #0c0c0c;
 `;
 
 function PrimaryLinks({title, text, icon, paddingTop, borderBottom, borderTop, slide, fsz, mfsz, fw, height, ls, link, to, unslide}) {
@@ -98,7 +104,7 @@ function PrimaryLinks({title, text, icon, paddingTop, borderBottom, borderTop, s
         <>
             {link
                 ? 
-            <StyledPrimaryLinks className="footer__primary-link" onMouseEnter={onEnter} onMouseLeave={onLeave} title={title} paddingTop={paddingTop} borderBottom={borderBottom} borderTop={borderTop}>
+            <StyledPrimaryLinks href={to} className="footer__primary-link" onMouseEnter={onEnter} onMouseLeave={onLeave} title={title} paddingTop={paddingTop} borderBottom={borderBottom} borderTop={borderTop}>
                 <Link to={to}>
                     <span className="primary-link-label">
                         {label()}

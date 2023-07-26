@@ -4,7 +4,6 @@ import { Routes, Route } from 'react-router-dom'
 
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
-// import Component from "./Components/Component"
 
 import Home from "./Pages/Home";
 import About from "./Pages/About";
@@ -29,7 +28,6 @@ function App() {
           <Route path="/privacy-policy" element={<Privacy/>} />
           <Route path="/accessibility-statement" element={<Statement/>} />
       </Routes>
-      {/* <Component/> */}
       <Footer/>
     </>
   )
