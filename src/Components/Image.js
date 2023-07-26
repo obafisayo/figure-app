@@ -27,10 +27,10 @@ const StyledSection = styled.div`
 function Image({img1, img2}) {
     return(
         <StyledSection>
-            <div id="image-were-engineering-the-humanoid-to-make-humans-capable-of-more" class="section__anchor"></div>
+            <div id="image-were-engineering-the-humanoid-to-make-humans-capable-of-more" className="section__anchor"></div>
             <picture>
-                <source srcset={img2} media="(min-width: 1440px)"/>
-                <source srcset={img2} media="(min-width: 768px)"/>
+                <source srcSet={img2} media="(min-width: 1440px)"/>
+                <source srcSet={img2} media="(min-width: 768px)"/>
                 <img src={img1} width="750" height="950" alt="" className="full-image__image" loading="lazy"/>
             </picture>
         </StyledSection>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Slider from "./Slider";
 import Svg from "./Svg";
@@ -105,11 +104,9 @@ function PrimaryLinks({title, text, icon, paddingTop, borderBottom, borderTop, s
             {link
                 ? 
             <StyledPrimaryLinks href={to} className="footer__primary-link" onMouseEnter={onEnter} onMouseLeave={onLeave} title={title} paddingTop={paddingTop} borderBottom={borderBottom} borderTop={borderTop}>
-                <Link to={to}>
-                    <span className="primary-link-label">
-                        {label()}
-                    </span>
-                </Link>
+                <span className="primary-link-label">
+                    {label()}
+                </span>
             </StyledPrimaryLinks>
                 :
             <StyledPrimaryLinks className="footer__primary-link" onMouseEnter={onEnter} onMouseLeave={onLeave} title={title} paddingTop={paddingTop} borderBottom={borderBottom} borderTop={borderTop}>

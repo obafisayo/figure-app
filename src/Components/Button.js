@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledButton = styled.button`
     line-height: 1.2;
-    font-family: FreeSansBold;
+    font-family: ${({mff}) => mff || 'FreeSansBold'};
     font-size: ${({fsz}) => fsz || '1.4rem'};
     font-weight: 400;
     letter-spacing: 0;
@@ -26,19 +26,34 @@ const StyledButton = styled.button`
     -moz-appearance: none;
     appearance: none;
     cursor: pointer;
-
+    a{
+        text-decoration: none;
+        color: #0c0c0c;
+        font-size: ${({fsz}) => fsz || '1.4rem'};
+        font-weight: 400;
+        font-family: ${({mff}) => mff || 'FreeSansBold'};
+    }
     :hover{
         transition: all 0.4s ease-in-out;
         background-color: #C9C3DE;
     }
     @media screen and (min-width: 768px){
-            height: 4.8rem;
-            border-radius: 2.4rem;
+        height: 4.8rem;
+        border-radius: 2.4rem;
+        a{
+            font-family: FreeSansBold;
+        }
     }
 `;
-function Button({text, fsz, width}) {
+function Button({text, fsz, width, to, link, mff}) {
     return (
-        <StyledButton width={width} fsz={fsz}>{text}</StyledButton>
+        <StyledButton width={width} fsz={fsz} mff={mff}>
+            {link?  
+                <a href={to}>{text}</a>
+                 : 
+                 `${text}`
+            }
+        </StyledButton>
     )
 }
 export default Button
