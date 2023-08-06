@@ -45,7 +45,7 @@ const StyledSection = styled.section`
     }
     .human-form-module__heading {
         line-height: 1;
-        font-family: inherit,serif;
+        font-family: NeueMachina-Regular,serif;
         font-size: 4.2rem;
         font-weight: 400;
         font-feature-settings: "ss12" on;

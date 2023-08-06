@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import Video from "../Components/Video";
 import aiVideo from "../assets/aiVideo.mp4"
@@ -18,35 +18,45 @@ const StyledMain = styled.main`
 
 function Home() {
     const videoRef = useRef(null)
-  
-    useEffect(() => {
-        function handleScroll() {
-            // Check if the div is in the viewport
-            const rect = videoRef.current.getBoundingClientRect();
-            const isVisible = (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
 
-            if (isVisible) {
-                // The div is visible in the viewport
-                console.log('Div is scrolled into view');
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0, // Adjust as needed
+    };
+    const targetDiv = document.querySelector(".is-home");
+    console.log(targetDiv)
+    const videoRefel = videoRef.current;
+    function callback(entries, observer) {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // console.log('Div is scrolled into view');
                 document.body.classList.add('hero-is-shown');
+                targetDiv.classList.add('is-home-link-shown')
+            } else {
+                // console.log('Div is scrolled out of view');
+                document.body.classList.remove('hero-is-shown');
+                targetDiv.classList.remove('is-home-link-shown')
             }
-        }
+          });
+      }
 
-        window.addEventListener('scroll', handleScroll);
+    const observer = new IntersectionObserver(callback, options);
 
-        // Cleanup the event listener when the component unmounts
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRefel) {
+        observer.unobserve(videoRefel);
+      }
+    };
+  }, []);
 
 
-
+  const [hasEntered, setHasEntered] = useState(false);
   const humanform = useRef(null)
 
   useEffect(() => {
@@ -58,8 +68,9 @@ function Home() {
     const humanformel = humanform.current;
     function callback(entries, observer) {
           entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                  myFunction();
+            if (entry.isIntersecting && !hasEntered) {
+                setHasEntered(true);
+                myFunction();
               }
           });
       }
@@ -75,12 +86,13 @@ function Home() {
         observer.unobserve(humanformel);
       }
     };
-  }, []);
+  }, [hasEntered]);
 
-  const myFunction = () => {
-    // Your code here
-    console.log('You have scrolled into the div in React!');
-  };
+    function myFunction() {
+        // Your code here
+        console.log('You have scrolled into the div in React!');
+    }
+  
     
 
 
@@ -89,9 +101,7 @@ function Home() {
             <div className="hero hero--layout-1 hero--is-home" ref={videoRef}>
                 <Video videotobeshown={aiVideo}/>
             </div>
-            <div>
-                <TextLoader/>
-            </div>
+            <TextLoader/>
             <Image img1={Humanoid_walking_tall} img2={Humanoid_walking}/>
             <ShortText to={"/master-plan"} bt={"See our Master Plan"} 
                 header={"We’re engineering the humanoid to make humans capable of more."} 
@@ -115,4 +125,4 @@ function Home() {
         </StyledMain>
     )
 }
-export default Home
+export default Home;

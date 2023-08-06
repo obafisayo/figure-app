@@ -271,8 +271,15 @@ function Navbar(){
         navRefEl.classList.toggle('is-mobile-navigation-active')
         document.body.classList.toggle('is-unscrollable')
     }
+    function newhandleClick(){
+        const toggleRefEl = toggleRef.current
+        const navRefEl = navRef.current
+        toggleRefEl.classList.toggle('is-active')
+        navRefEl.classList.toggle('is-mobile-navigation-active')
+        // document.body.classList.toggle('is-unscrollable')
+    }
     return(
-        <StyledHeader className="navigation is-home-link-shown is-home" ref={navRef}>
+        <StyledHeader className="navigation  is-home" ref={navRef}>
             <div className="navigation__content">
                 <button className="navigation__toggle navigation-toggle" aria-label="Open main navigation" onClick={handleClick} ref={toggleRef}>
                     <span className="navigation-toggle__icon"></span>
@@ -291,22 +298,22 @@ function Navbar(){
                 <nav className="navigation__links-wrapper" aria-label="Main navigation">
                     <Totop component={
                         <div className="navigation__links">
-                            <Link onClick={handleClick} className="navigation__link" title="About Us" to="/about-us">
+                            <Link onClick={newhandleClick} className="navigation__link" title="About Us" to="/about-us">
                                 <div className="navigation__link-background"></div>
                                 <span className="navigation__link-button-text">About Us</span>
                             </Link>
                             <div className="navigation__link-separator"></div>
-                            <Link onClick={handleClick} className="navigation__link" title="Master Plan" to="/master-plan">
+                            <Link onClick={newhandleClick} className="navigation__link" title="Master Plan" to="/master-plan">
                                 <div className="navigation__link-background"></div>
                                 <span className="navigation__link-button-text">Master Plan</span>
                             </Link>
                             <div className="navigation__link-separator"></div>
-                            <Link onClick={handleClick}  className="navigation__link" title="Culture" to="/culture">
+                            <Link onClick={newhandleClick}  className="navigation__link" title="Culture" to="/culture">
                                 <div className="navigation__link-background"></div>
                                 <span className="navigation__link-button-text">Culture</span>
                             </Link>
                             <div className="navigation__link-separator"></div>
-                            <Link onClick={handleClick} className="navigation__link" title="Careers" to="/careers">
+                            <Link onClick={newhandleClick} className="navigation__link" title="Careers" to="/careers">
                                 <div className="navigation__link-background"></div>
                                 <span className="navigation__link-button-text">Careers</span>
                             </Link>

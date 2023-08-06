@@ -2,10 +2,10 @@
   font-family: FreeSans;
   src: url(fonts/FreeSans.ttf) format("truetype");
 }
-/* @font-face {
+@font-face {
   font-family: FreeSansBold;
   src: url(fonts/FreeSansBold.ttf) format("truetype");
-} */
+}
 @font-face {
   font-family: NeueMachina-Regular;
   src: url(fonts/NeueMachina-Regular.otf) ;
@@ -95,16 +95,9 @@ body.is-unscrollable {
     opacity: 1;
     visibility: visible;
 }
-
-.navigation.is-home-link-shown .navigation__home-link-wrapper {
-  margin: 0 0.8rem 0 0;
-  width: 3.6rem;
-  opacity: 1;
-  visibility: visible;
-}
 .is-home-link-shown .navigation__home-link-wrapper {
   opacity: 1;
-  visibility: visible;
+  visibility: hidden;
 }
 .section{
   position: relative; 
@@ -117,5 +110,10 @@ body.is-unscrollable {
   body {
     font-size: 1.6rem;
   }
-  
+  .navigation.is-home-link-shown .navigation__home-link-wrapper {
+      margin: 0 0.8rem 0 0;
+      width: 3.6rem;
+      opacity: 1;
+      visibility: visible;
+  }
 } 
