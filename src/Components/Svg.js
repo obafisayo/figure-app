@@ -28,16 +28,16 @@ const StyledSpan = styled.span`
     .icon__blur {
         transition: all .3s ease-in-out;
         filter: blur(0.25rem);
-        opacity: ${({hovered}) => hovered? 1 : 0};
+        opacity: ${({hovered, hove}) => hove || hovered? 1 : 0};
         position: absolute;
         top: 0;
         left: 0;
         will-change: filter;
     }
 `;
-function Svg({hov, arrowUpRight, arrowLeft, arrowRight, plus}){
+function Svg({hov, hove, arrowUpRight, arrowLeft, arrowRight, plus}){
     return(
-        <StyledSpan hovered={hov} className="arrow-button__icon icon--arrow">
+        <StyledSpan hovered={hov} hove={hove} className="arrow-button__icon icon--arrow">
             {arrowUpRight && <span>
                 <span className="icon__solid">
                     <svg className="icon__solid-icon" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -94,6 +94,62 @@ function Component(){
                     </svg>
                 </span>
             </span> */}
+             {/* <a className="news-card" title="Read Now" target="_blank" rel="noreferrer" href="https://www.reuters.com/technology/ai-startup-figure-raises-70-million-build-humanoid-robots-2023-05-24/">
+                        <article className="news-card__inner">
+                        <div className="news-card__gradient-bg"></div>
+                        <div className="news-card__gradient-bg-blur"></div>
+                        <div className="news-card__black-bg"></div>
+                        <div className="news-card__top">
+                            <span className="news-card__source">Reuters</span>
+                            <h1 className="news-card__heading">AI startup Figure raises $70 million to build humanoid robots</h1>
+                        </div>
+                        <div className="news-card__bottom">
+                            <div className="arrow-button arrow-button--light">Read Now</div>
+                        </div>
+                        </article>
+                    </a>
+                    <a className="news-card" title="Read Now" target="_blank" rel="noreferrer" href="">
+                        <article className="news-card__inner">
+                        <div className="news-card__gradient-bg"></div>
+                        <div className="news-card__gradient-bg-blur"></div>
+                        <div className="news-card__black-bg"></div>
+                        <div className="news-card__top">
+                            <span className="news-card__source">Fast Company</span>
+                            <h1 className="news-card__heading">The race to build AI-powered humanoids is heating up</h1>
+                        </div>
+                        <div className="news-card__bottom">
+                            <div className="arrow-button arrow-button--light">Read Now</div>
+                        </div>
+                        </article>
+                    </a>
+                    <a className="news-card" title="Read Now" target="_blank" rel="noreferrer" href="">
+                        <article className="news-card__inner">
+                        <div className="news-card__gradient-bg"></div>
+                        <div className="news-card__gradient-bg-blur"></div>
+                        <div className="news-card__black-bg"></div>
+                        <div className="news-card__top">
+                            <span className="news-card__source">TechCrunch</span>
+                            <h1 className="news-card__heading">Intel backs Figure’s Humanoid robot to the tune of $9 million</h1>
+                        </div>
+                        <div className="news-card__bottom">
+                            <div className="arrow-button arrow-button--light">Read Now</div>
+                        </div>
+                        </article>
+                    </a>
+                    <a className="news-card" title="Read Now" target="_blank" rel="noreferrer" href="">
+                        <article className="news-card__inner">
+                        <div className="news-card__gradient-bg"></div>
+                        <div className="news-card__gradient-bg-blur"></div>
+                        <div className="news-card__black-bg"></div>
+                        <div className="news-card__top">
+                            <span className="news-card__source">Axios</span>
+                            <h1 className="news-card__heading">Humanoid robots are coming</h1>
+                        </div>
+                        <div className="news-card__bottom">
+                            <div className="arrow-button arrow-button--light">Read Now</div>
+                        </div>
+                        </article>
+                    </a> */}
         </footer>
     )
 }

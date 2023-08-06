@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Svg from './Svg'
 import useContextState from "../useContextState";
 
-const SliderDiv = styled.button`
+const SliderButton = styled.button`
     transition: background-size .3s ease-in-out;
     line-height: 1.2;
     font-family: inherit, sans-serif;
@@ -13,7 +13,7 @@ const SliderDiv = styled.button`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: ${({light}) => light? '#fff' : '#0c0c0c'} ;
+    color: ${({light}) => light? '#ffffff' : '#0c0c0c'} ;
     text-decoration: none;
     border: none;
     background: ${({light}) => light? 'linear-gradient(90deg,hsla(0,0%,100%,0),hsla(0,0%,100%,0)),linear-gradient(90deg,#fff,#fff)' : 'linear-gradient(90deg,hsla(0,0%,5%,0),hsla(0,0%,5%,0)),linear-gradient(90deg,#0c0c0c,#0c0c0c)'};
@@ -34,6 +34,7 @@ const SliderDiv = styled.button`
     }
     :hover::after{
         width: ${({slide}) => slide ? '100%' : '0'};
+        ${({hovered}) => hovered ? 'width: 100%;' : 'width: 0;'}
     }
     @media screen and (max-width: 860px) {
         font-size: ${({mfsz, fsz}) => mfsz || fsz};
@@ -45,16 +46,17 @@ const SliderDiv = styled.button`
         }
     }
 `;
-function Slider({text, icon, plus, arrowUpRight, arrowLeft, arrowRight, slide, ls, fsz, mfsz, fw, height, hovered, unslide, light, bordercolor}) {
+
+function Slider({text, news, icon, plus, arrowUpRight, arrowLeft, arrowRight, slide, ls, fsz, mfsz, fw, height, hovered, unslide, light, bordercolor}) {
     const {hover, onLeave, onEnter} = useContextState()
     return(
-        <SliderDiv unslide={unslide} slide={slide} fsz={fsz} fw={fw} mfsz={mfsz} ls={ls} height={height} onMouseEnter={onEnter} onMouseLeave={onLeave} hovered={hovered} light={light} bordercolor={bordercolor}>
+        <SliderButton news={news} unslide={unslide} slide={slide} fsz={fsz} fw={fw} mfsz={mfsz} ls={ls} height={height} onMouseEnter={onEnter} onMouseLeave={onLeave} hovered={hovered} light={light} bordercolor={bordercolor}>
             {text}
             { icon && plus && <Svg plus hov={hover}/>}
-            { icon && arrowUpRight && <Svg arrowUpRight hov={hover}/>}
+            { icon && arrowUpRight && <Svg arrowUpRight hov={hover} hove={hovered}/>}
             { icon && arrowLeft && <Svg arrowLeft hov={hover}/>}
             { icon && arrowRight && <Svg arrowRight hov={hover}/>}
-        </SliderDiv>
+        </SliderButton>
     )
 }
 export default Slider
