@@ -1,18 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 import NewsBoxes from "./NewsBoxes";
-const StyledSection = styled.section`
-    position: relative;
-    background-color: #0c0c0c;
-    color: white;
+const StyledSection = styled.div`
+    .section{
+        position: relative; 
+    }
     .section--with-background.section--small-margin {
         padding: 6rem var(--content-padding);
+    }
+    .news-module {
+        color: #fff;
+    }
+    .section--dark {
+        background-color: #0c0c0c;
     }
     .section--with-background {
         margin: unset;
     }
     .section--small-margin {
-        margin: 6rem 0;
+        padding: 6rem 0;
     }
     .section__anchor {
         position: absolute;
@@ -22,6 +28,7 @@ const StyledSection = styled.section`
         max-width: 256rem;
         width: 100%;
         margin: 0 auto;
+        gap: 20px;
     }
     .news-module__heading {
         line-height: 1.1;
@@ -30,8 +37,6 @@ const StyledSection = styled.section`
         font-weight: 400;
         letter-spacing: -.01em;
         margin: 0 0 4.2rem;
-        /* border: 2px solid white; */
-        /* color: white; */
     }
     .news-module__items {
         display: grid;
@@ -40,18 +45,18 @@ const StyledSection = styled.section`
         gap: 2rem;
     }
 
-    @media screen and (min-width: 1024px){
+    @media screen and (min-width: 1024px) {
         .news-module__items {
             grid-template-columns: repeat(4,1fr);
         }
     }
 
-    @media screen and (min-width: 768px){
+    @media screen and (min-width: 768px) {
         .section--with-background.section--small-margin {
             padding: 12rem var(--content-padding);
         }
         .section--small-margin {
-            margin: 12rem 0;
+            padding: 12rem 0;
         }
         .section__anchor {
             top: -12.8rem;
@@ -60,37 +65,36 @@ const StyledSection = styled.section`
             font-size: 3.6rem;
             margin: 0 0 16rem;
         }
-        .news-module__items {
-            grid-template-columns: repeat(2,1fr);
-        }
     }
 `;
-function FigureNews (){
-    return(
-      <StyledSection className="section--small-margin section--with-background">
-          <div id="figure-in-the-news" className="section__anchor"></div>
-            <div className="news-module__inner">
-                <h1 className="news-module__heading">Figure in the news</h1>
-                <div className="news-module__items">
-                    <NewsBoxes href={"https://www.reuters.com/technology/ai-startup-figure-raises-70-million-build-humanoid-robots-2023-05-24/"} 
-                                text={"AI startup Figure raises $70 million to build humanoid robots"}
-                                text2={"Reuters"}
-                    />
-                    <NewsBoxes href={"https://www.fastcompany.com/90859010/the-race-to-build-ai-powered-humanoids-is-heating-up"}
-                                text={"The race to build AI-powered humanoids is heating up"}
-                                text2={"Fast Company"}
-                    />
-                    <NewsBoxes href={"https://techcrunch.com/2023/07/17/intel-backs-figures-humanoid-robot-to-the-tune-of-9-million/"}
-                                text={"Intel backs Figure’s Humanoid robot to the tune of $9 million"}
-                                text2={"TechCrunch"}
-                    />
-                    <NewsBoxes href={"https://www.axios.com/2023/03/17/robots-humanoid-figure-tesla-robotics-ai"}
-                                text={"Humanoid robots are coming"}
-                                text2={"Axios"}
-                    />
+function Trial() {
+    return (
+        <StyledSection>
+            <section className="section news-module section--small-margin section--with-background section--dark">
+                <div id="figure-in-the-news" className="section__anchor"></div>
+                <div className="news-module__inner">
+                    <h1 className="news-module__heading">Figure in the news</h1>
+                    <div className="news-module__items">
+                        <NewsBoxes href={"https://www.reuters.com/technology/ai-startup-figure-raises-70-million-build-humanoid-robots-2023-05-24/"} 
+                                    text={"AI startup Figure raises $70 million to build humanoid robots"}
+                                    text2={"Reuters"}
+                        />
+                        <NewsBoxes href={"https://www.fastcompany.com/90859010/the-race-to-build-ai-powered-humanoids-is-heating-up"}
+                                    text={"The race to build AI-powered humanoids is heating up"}
+                                    text2={"Fast Company"}
+                        />
+                        <NewsBoxes href={"https://techcrunch.com/2023/07/17/intel-backs-figures-humanoid-robot-to-the-tune-of-9-million/"}
+                                    text={"Intel backs Figure’s Humanoid robot to the tune of $9 million"}
+                                    text2={"TechCrunch"}
+                        />
+                        <NewsBoxes href={"https://www.axios.com/2023/03/17/robots-humanoid-figure-tesla-robotics-ai"}
+                                    text={"Humanoid robots are coming"}
+                                    text2={"Axios"}
+                        />
+                    </div>
                 </div>
-          </div>
-      </StyledSection>
+            </section>
+        </StyledSection>
     )
-}
-export default FigureNews;
+ }
+ export default Trial;

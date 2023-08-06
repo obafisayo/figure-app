@@ -34,7 +34,7 @@ const SliderButton = styled.button`
     }
     :hover::after{
         width: ${({slide}) => slide ? '100%' : '0'};
-        ${({hovered}) => hovered ? 'width: 100%;' : 'width: 0;'}
+        /* ${({hovered}) => hovered ? 'width: 100%;' : 'width: 0;'} */
     }
     @media screen and (max-width: 860px) {
         font-size: ${({mfsz, fsz}) => mfsz || fsz};
@@ -43,11 +43,12 @@ const SliderButton = styled.button`
         }
         ::after{
             width: ${({unslide}) => unslide ? '0' : '0'};
+            width: ${({news}) => news ? '100%' : '0'};
         }
     }
 `;
 
-function Slider({text, news, icon, plus, arrowUpRight, arrowLeft, arrowRight, slide, ls, fsz, mfsz, fw, height, hovered, unslide, light, bordercolor}) {
+function Slider({news, text, icon, plus, arrowUpRight, arrowLeft, arrowRight, slide, ls, fsz, mfsz, fw, height, hovered, unslide, light, bordercolor}) {
     const {hover, onLeave, onEnter} = useContextState()
     return(
         <SliderButton news={news} unslide={unslide} slide={slide} fsz={fsz} fw={fw} mfsz={mfsz} ls={ls} height={height} onMouseEnter={onEnter} onMouseLeave={onLeave} hovered={hovered} light={light} bordercolor={bordercolor}>

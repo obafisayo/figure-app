@@ -107,7 +107,7 @@ function ShortText({header, paragraph, to, bt, paragraph2, kicker, bcc}) {
             <div id="were-engineering-the-humanoid-to-make-humans-capable-of-more" className="section__anchor"></div>
             <div className="cta__content">
                 <div className="cta__heading-wrapper">
-                    <div class="cta__kicker">{kicker}</div>
+                    <div className="cta__kicker">{kicker}</div>
                     <h1 className="cta__heading">{header}</h1>
                 </div>
                 <div className="cta__description-wrapper">

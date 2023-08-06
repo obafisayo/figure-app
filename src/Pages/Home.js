@@ -10,6 +10,7 @@ import potential_walking_tall  from "../assets/potential_walking_tall.webp"
 import potential_walking  from "../assets/potential_walking.webp"
 import ShortText from "../Components/ShortText";
 import FigureNews from "../Components/FigureNews";
+import HumanForm from "../Components/HumanForms";
 
 const StyledMain = styled.main`
     display: block;
@@ -44,6 +45,45 @@ function Home() {
         };
     }, []);
 
+
+
+  const humanform = useRef(null)
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5, // Adjust as needed
+    };
+    const humanformel = humanform.current;
+    function callback(entries, observer) {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  myFunction();
+              }
+          });
+      }
+
+    const observer = new IntersectionObserver(callback, options);
+
+    if (humanform.current) {
+      observer.observe(humanform.current);
+    }
+
+    return () => {
+      if (humanformel) {
+        observer.unobserve(humanformel);
+      }
+    };
+  }, []);
+
+  const myFunction = () => {
+    // Your code here
+    console.log('You have scrolled into the div in React!');
+  };
+    
+
+
     return (
         <StyledMain>
             <div className="hero hero--layout-1 hero--is-home" ref={videoRef}>
@@ -57,12 +97,15 @@ function Home() {
                 header={"We’re engineering the humanoid to make humans capable of more."} 
                 paragraph={"With the first humanoid by our side in the workforce, we’ll have the ability to create and produce so much more, address drastic labor shortages, and reduce the number of workers in unsafe jobs."}
             />
+            <div ref={humanform}>
+                <HumanForm/>
+            </div>
             <ShortText to={"/about-us"} bt={"About Us"} bcc={"#f6f6ef"}
                 kicker={"Designed for our world"}
                 header={"Why a human form factor?"} 
                 paragraph={"We’ve designed our world for the human form. Hands allow us to open doors and use tools; arms and legs allow us to move efficiently, climb stairs, lift boxes, and more."} 
                 paragraph2={"Figure 01 brings together the dexterity of the human form and cutting edge AI to go beyond single-function robots and lend support across manufacturing, logistics, warehousing, and retail."}
-            />
+                />
             <FigureNews/>
             <Image img1={potential_walking_tall} img2={potential_walking}/>
             <ShortText bt={"Careers"} to={"/careers"} 
