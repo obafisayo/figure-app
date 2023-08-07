@@ -90,14 +90,21 @@ body.is-unscrollable {
 .number__primary-links {
   counter-reset: footer-primary-links-counter;
 }
-
+.navigation__home-link-wrapper {
+  transition: margin .3s ease-in-out,width .3s ease-in-out,opacity .3s ease-in-out,visibility .3s ease-in-out;
+  width: 4.2rem;
+  box-shadow: 0 0.4rem 2rem rgba(0,0,0,.08);
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+}
+.is-home-link-shown .navigation__home-link-wrapper{
+  opacity: 1;
+  visibility: visible;
+}
 .navigation.is-mobile-navigation-active .navigation__links-wrapper {
     opacity: 1;
     visibility: visible;
-}
-.is-home-link-shown .navigation__home-link-wrapper {
-  opacity: 1;
-  visibility: hidden;
 }
 .section{
   position: relative; 

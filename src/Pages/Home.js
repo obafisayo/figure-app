@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import Video from "../Components/Video";
 import aiVideo from "../assets/aiVideo.mp4"
@@ -11,6 +11,7 @@ import potential_walking  from "../assets/potential_walking.webp"
 import ShortText from "../Components/ShortText";
 import FigureNews from "../Components/FigureNews";
 import HumanForm from "../Components/HumanForms";
+// import HumanFor from "../Components/hh";
 
 const StyledMain = styled.main`
     display: block;
@@ -25,19 +26,20 @@ function Home() {
       rootMargin: '0px',
       threshold: 0, // Adjust as needed
     };
+
     const targetDiv = document.querySelector(".is-home");
-    console.log(targetDiv)
+
     const videoRefel = videoRef.current;
     function callback(entries, observer) {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
                 // console.log('Div is scrolled into view');
                 document.body.classList.add('hero-is-shown');
-                targetDiv.classList.add('is-home-link-shown')
+                targetDiv.classList.remove('is-home-link-shown')
             } else {
                 // console.log('Div is scrolled out of view');
                 document.body.classList.remove('hero-is-shown');
-                targetDiv.classList.remove('is-home-link-shown')
+                targetDiv.classList.add('is-home-link-shown')
             }
           });
       }
@@ -56,43 +58,7 @@ function Home() {
   }, []);
 
 
-  const [hasEntered, setHasEntered] = useState(false);
-  const humanform = useRef(null)
 
-  useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.5, // Adjust as needed
-    };
-    const humanformel = humanform.current;
-    function callback(entries, observer) {
-          entries.forEach(entry => {
-            if (entry.isIntersecting && !hasEntered) {
-                setHasEntered(true);
-                myFunction();
-              }
-          });
-      }
-
-    const observer = new IntersectionObserver(callback, options);
-
-    if (humanform.current) {
-      observer.observe(humanform.current);
-    }
-
-    return () => {
-      if (humanformel) {
-        observer.unobserve(humanformel);
-      }
-    };
-  }, [hasEntered]);
-
-    function myFunction() {
-        // Your code here
-        console.log('You have scrolled into the div in React!');
-    }
-  
     
 
 
@@ -107,9 +73,8 @@ function Home() {
                 header={"We’re engineering the humanoid to make humans capable of more."} 
                 paragraph={"With the first humanoid by our side in the workforce, we’ll have the ability to create and produce so much more, address drastic labor shortages, and reduce the number of workers in unsafe jobs."}
             />
-            <div ref={humanform}>
-                <HumanForm/>
-            </div>
+            {/* <HumanFor/> */}
+            <HumanForm/>
             <ShortText to={"/about-us"} bt={"About Us"} bcc={"#f6f6ef"}
                 kicker={"Designed for our world"}
                 header={"Why a human form factor?"} 

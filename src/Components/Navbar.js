@@ -18,14 +18,14 @@ const StyledHeader = styled.header`
         width: 100%;
         max-width: 256rem;
     }
-    .navigation__home-link-wrapper {
+    /* .navigation__home-link-wrapper {
         transition: margin .3s ease-in-out,width .3s ease-in-out,opacity .3s ease-in-out,visibility .3s ease-in-out;
         width: 4.2rem;
         box-shadow: 0 0.4rem 2rem rgba(0,0,0,.08);
         z-index: 200;
         opacity: 0;
         visibility: hidden;
-    }
+    } */
     .is-home .navigation__home-link {
         pointer-events: none;
     }
@@ -274,12 +274,13 @@ function Navbar(){
     function newhandleClick(){
         const toggleRefEl = toggleRef.current
         const navRefEl = navRef.current
-        toggleRefEl.classList.toggle('is-active')
-        navRefEl.classList.toggle('is-mobile-navigation-active')
-        // document.body.classList.toggle('is-unscrollable')
+        toggleRefEl.classList.remove('is-active')
+        navRefEl.classList.remove('is-mobile-navigation-active')
+        navRefEl.classList.add('is-home-link-shown')
+        document.body.classList.remove('is-unscrollable')
     }
     return(
-        <StyledHeader className="navigation  is-home" ref={navRef}>
+        <StyledHeader className="navigation is-home-link-shown is-home" ref={navRef}>
             <div className="navigation__content">
                 <button className="navigation__toggle navigation-toggle" aria-label="Open main navigation" onClick={handleClick} ref={toggleRef}>
                     <span className="navigation-toggle__icon"></span>

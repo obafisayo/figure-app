@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import HumanoidFull from "../assets/Figure_humanoid__2_.webp"
 import HumanoidMobile from "../assets/Humanoid_Mobile.webp"
@@ -85,7 +85,7 @@ const StyledSection = styled.section`
         line-height: 1;
         font-family: sans-serif,serif;
         font-size: 4.2rem;
-        font-weight: 400;
+        font-weight: bold;
         font-feature-settings: "ss12" on;
         letter-spacing: -.01em;
         text-transform: uppercase;
@@ -102,6 +102,7 @@ const StyledSection = styled.section`
         }
         .human-form-item__description {
             font-size: 14.5rem;
+            line-height: 14.5rem;
         }
     }
 
@@ -143,11 +144,257 @@ const StyledSection = styled.section`
         }
         .human-form-item__description {
             font-size: 8.5rem;
-            font-size: 10rem;
+            font-size: 14.5rem;
         }
     }
 `;
-function HumanForm () {
+function HumanFor () {
+    const deay = 600;
+    const [humanForm, setHumanForm] = useState(false);
+    const [humanForm1, setHumanForm1] = useState(false);
+    const [humanForm2, setHumanForm2] = useState(false);
+    const [humanForm3, setHumanForm3] = useState(false);
+    const [humanForm4, setHumanForm4] = useState(false);
+    const [humanForm5, setHumanForm5] = useState(false);
+
+    const [height, setHeight] = useState(0);
+    const [payload, setPayload] = useState(0);
+    const [weight, setWeight] = useState(0);
+    const [runtime, setRuntime] = useState(0);
+    const [speed, setSpeed] = useState([]);
+    const [system, setSystem] = useState("");
+
+    const humanform = useRef(null)
+    const humanform1 = useRef(null)
+    const humanform2 = useRef(null)
+    const humanform3 = useRef(null)
+    const humanform4 = useRef(null)
+    const humanform5 = useRef(null)
+  
+    useEffect(() => {
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5, // Adjust as needed
+      };
+      const humanformel = humanform.current;
+      function callback(entries, observer) {
+            entries.forEach(entry => {
+              if (entry.isIntersecting && !humanForm) {
+                    // console.log('height');
+                    setHumanForm(true);
+                    for (let i = 0; i <= 5; i++){
+                        setTimeout(() => {
+                            setHeight(i)
+                        }, i * (deay / 5));
+                    }
+                }
+            });
+        }
+  
+      const observer = new IntersectionObserver(callback, options);
+  
+      if (humanformel) {
+        observer.observe(humanformel);
+      }
+  
+      return () => {
+        if (humanformel) {
+          observer.unobserve(humanformel);
+        }
+      };
+    }, [humanForm]);
+
+    
+    useEffect(() => {
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5, // Adjust as needed
+      };
+      const humanformel1 = humanform1.current;
+      function callback(entries, observer) {
+            entries.forEach(entry => {
+              if (entry.isIntersecting && !humanForm1) {
+                    // console.log('payload');
+                    setHumanForm1(true);
+                    for (let i = 0; i <= 20; i++){
+                        setTimeout(() => {
+                            setPayload(i)
+                        }, i * (deay / 25));
+                    }
+                }
+            });
+        }
+  
+      const observer = new IntersectionObserver(callback, options);
+  
+      if (humanformel1) {
+        observer.observe(humanformel1);
+      }
+  
+      return () => {
+        if (humanformel1) {
+          observer.unobserve(humanformel1);
+        }
+      };
+    }, [humanForm1]);
+    
+    
+    useEffect(() => {
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5, // Adjust as needed
+      };
+      const humanformel2 = humanform2.current;
+      function callback(entries, observer) {
+            entries.forEach(entry => {
+              if (entry.isIntersecting && !humanForm2) {
+                    // console.log('weight');
+                    setHumanForm2(true);
+                    for (let i = 0; i <= 60; i++){
+                        setTimeout(() => {
+                            setWeight(i)
+                        }, i * (deay / 60));
+                    }
+                }
+            });
+        }
+  
+      const observer = new IntersectionObserver(callback, options);
+  
+      if (humanformel2) {
+        observer.observe(humanformel2);
+      }
+  
+      return () => {
+        if (humanformel2) {
+          observer.unobserve(humanformel2);
+        }
+      };
+    }, [humanForm2]);
+
+
+    useEffect(() => {
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5, // Adjust as needed
+      };
+      const humanformel3 = humanform3.current;
+      function callback(entries, observer) {
+            entries.forEach(entry => {
+              if (entry.isIntersecting && !humanForm3) {
+                    // console.log('runtime');
+                    setHumanForm3(true);
+                    for (let i = 0; i <= 5; i++){
+                        setTimeout(() => {
+                            setRuntime(i)
+                        }, i * (deay / 5) );
+                    }
+                }
+            });
+        }
+  
+      const observer = new IntersectionObserver(callback, options);
+  
+      if (humanformel3) {
+        observer.observe(humanformel3);
+      }
+  
+      return () => {
+        if (humanformel3) {
+          observer.unobserve(humanformel3);
+        }
+      };
+    }, [humanForm3]);        
+
+    useEffect(() => {
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5, // Adjust as needed
+      };
+      const humanformel4 = humanform4.current;
+      function callback(entries, observer) {
+            entries.forEach(entry => {
+              if (entry.isIntersecting && !humanForm4) {
+                    // console.log('speed');
+                    setHumanForm4(true);
+                    const increment = 0.1;
+                    let currentNumber = 0.0;
+                
+                    function printNumber() {
+                        if (currentNumber <= 1.2) {
+                            setSpeed([currentNumber.toFixed(1)]);
+                            currentNumber += increment;
+                            setTimeout(printNumber, currentNumber.toFixed(1) * (deay / 12));
+                        }
+                    }
+                
+                    printNumber();                   
+                }
+            });
+        }
+  
+      const observer = new IntersectionObserver(callback, options);
+  
+      if (humanformel4) {
+        observer.observe(humanformel4);
+      }
+  
+      return () => {
+        if (humanformel4) {
+          observer.unobserve(humanformel4);
+        }
+      };
+    }, [humanForm4]);
+
+
+    useEffect(() => {
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5, // Adjust as needed
+      };
+      const humanformel5 = humanform5.current;
+      function callback(entries, observer) {
+            entries.forEach(entry => {
+              if (entry.isIntersecting && !humanForm5) {
+                    // console.log('system');
+                    setHumanForm5(true);
+                    const increment = 1;
+                    let currentNumber = 0;
+
+                    const stringsArray = ["ELECTRIC", "SKYLINE", "MECHANIC", "HYDROPOW", "SOLAR", "GASOLINE",  "ELECTRIC"];
+
+                    function printletter() {
+                        if (currentNumber <= stringsArray.length - 1) {
+                            setSystem(stringsArray[currentNumber])
+                            currentNumber += increment;
+                            setTimeout(printletter, (deay / stringsArray.length));
+                        }
+                    }
+                    printletter()
+                }
+            });
+        }
+  
+      const observer = new IntersectionObserver(callback, options);
+  
+      if (humanformel5) {
+        observer.observe(humanformel5);
+      }
+  
+      return () => {
+        if (humanformel5) {
+          observer.unobserve(humanformel5);
+        }
+      };
+    }, [humanForm5, system]);
+
+
     return (
         <StyledSection>
             <section className="section human-form-module section--with-background section--tan section--human-form-module">
@@ -157,41 +404,41 @@ function HumanForm () {
                         <h1 className="human-form-module__heading">Introducing Figure 01</h1>
                         <p className="human-form-module__description">The world’s first commercially-viable autonomous humanoid robot</p>
                     </div>
-                    <dl className="human-form-module__items">
-                        <div className="human-form-item">
+                    <dl className="human-form-module__items" >
+                        <div className="human-form-item" ref={humanform}>
                             <dt className="human-form-item__title">Height</dt>
                             <dd className="human-form-item__description">
-                                <span className="stats-module__number-shuffler">5'6"</span>
+                                <span className="stats-module__number-shuffler">{height}'6"</span>
                             </dd>
                         </div>
-                        <div className="human-form-item">
+                        <div className="human-form-item" ref={humanform1}>
                             <dt className="human-form-item__title">Payload</dt>
                             <dd className="human-form-item__description">
-                                <span className="stats-module__number-shuffler">20kg</span>
+                                <span className="stats-module__number-shuffler">{payload}kg</span>
                             </dd>
                         </div>
-                        <div className="human-form-item">
+                        <div className="human-form-item" ref={humanform2}>
                             <dt className="human-form-item__title">Weight</dt>
                             <dd className="human-form-item__description">
-                                <span className="stats-module__number-shuffler">60kg</span>
+                                <span className="stats-module__number-shuffler">{weight}kg</span>
                             </dd>
                         </div>
-                        <div className="human-form-item">
+                        <div className="human-form-item" ref={humanform3}>
                             <dt className="human-form-item__title">Runtime</dt>
                             <dd className="human-form-item__description">
-                                <span className="stats-module__number-shuffler">5hr</span>
+                                <span className="stats-module__number-shuffler">{runtime}hr</span>
                             </dd>
                         </div>
-                        <div className="human-form-item">
+                        <div className="human-form-item" ref={humanform4}>
                             <dt className="human-form-item__title">Speed</dt>
                             <dd className="human-form-item__description">
-                                <span className="stats-module__number-shuffler">1.2M/S</span>
+                                <span className="stats-module__number-shuffler" >{speed}M/S</span>
                             </dd>
                         </div>
-                        <div className="human-form-item">
+                        <div className="human-form-item" ref={humanform5}>
                             <dt className="human-form-item__title">System</dt>
                             <dd className="human-form-item__description">
-                                <span className="stats-module__number-shuffler">Electric</span>
+                                <span className="stats-module__number-shuffler">{system}</span>
                             </dd>
                         </div>
                     </dl>
@@ -205,4 +452,4 @@ function HumanForm () {
         </StyledSection>
     )
  }
- export default HumanForm;
+ export default HumanFor;
