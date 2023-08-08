@@ -238,13 +238,10 @@ function Video({videotobeshown}) {
         const video = videoRef.current;
         const playModeEl = playMode.current;
 
-        // Autoplay the video when the component mounts
         video.autoplay = true;
 
-        // Remove controls from the video element
         video.controls = false;
 
-        // Mute the video (optional)
         video.muted = true;
 
         // Add an event listener to restart the video when it ends
