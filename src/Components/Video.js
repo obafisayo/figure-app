@@ -171,7 +171,9 @@ const StyledVideo = styled.section`
     .hero-video-progress.is-hovering .hero-video-progress__progress-circle--blur{
         opacity: 1;
     }
-    
+    .tt{
+      display: none;
+    }
     @media screen and (min-width: 480px){
         .hero__content {
             aspect-ratio: 3840/2160;
@@ -217,8 +219,6 @@ function Video({videotobeshown}) {
     const progressRef = useRef(null);
     const videoRef = useRef(null);
 
-    const [videoDuration, setVideoDuration] = useState(0);
-
     const [isPlaying, setIsPlaying] = useState(true);
 
     function handleToggle() {
@@ -228,10 +228,6 @@ function Video({videotobeshown}) {
             videoRef.current.play();
           }
           setIsPlaying(!isPlaying);
-    }
-
-    function handleLoadedMetadata() {
-        setVideoDuration(videoRef.current.duration);
     }
 
     useEffect(() => {
@@ -244,7 +240,7 @@ function Video({videotobeshown}) {
 
         video.muted = true;
 
-        // Add an event listener to restart the video when it ends
+        // event listener to restart the video when it ends
         video.addEventListener('ended', () => {
             video.play();
 
@@ -266,34 +262,28 @@ function Video({videotobeshown}) {
         };
     }, []);
 
-    const [dashOffset, setDashOffset] = useState(144.51326206513048);
-    const intervalRef = useRef(null);
+  const [videoDuration, setVideoDuration] = useState(0);
+  const [currentVideoTime, setCurrentVideoTime] = useState(0);
+  const [dashoffset, setDashoffset] = useState(0); 
 
-    useEffect(() => {
-        intervalRef.current = setInterval(() => {
-            if (isPlaying) {
-                setDashOffset((prevOffset) => {
-                    // Increment the dash offset by a certain value
-                    const newValue = prevOffset - ((144.51326206513048 / videoDuration) / 20);
-                    if (1 >= newValue && newValue <= 0) {
-                    setDashOffset(144.51326206513048)
-                    }
-                    
-                    return newValue;
-                });
-            } else {
-                clearInterval(intervalRef.current);
-            }
-        }, 50);
-        // Cleanup the interval when the component unmounts
-        return () => {
-        clearInterval(intervalRef.current);
-        };
-    }, [videoDuration, isPlaying]);
+  const handleLoadedMetadata = () => {
+    setVideoDuration(videoRef.current.duration);
+  };
+
+  const handleTimeUpdate = () => {
+    setCurrentVideoTime(videoRef.current.currentTime);
+
+    const maxDashoffset = 144.51326206513048; // Maximum length of the dashoffset in pixels
+    const percentageComplete = (videoRef.current.currentTime / videoRef.current.duration) * 100;
+    const calculatedDashoffset = maxDashoffset - (percentageComplete / 100) * maxDashoffset;
+
+    setDashoffset(calculatedDashoffset);
+  };
+
 
     const styles  = {
         transition: "stroke-dashoffset 5ms ease 0s",
-        strokeDashoffset: `${dashOffset}`
+        strokeDashoffset: `${dashoffset}`
     }
     
     function handleEnter() {
@@ -313,7 +303,8 @@ function Video({videotobeshown}) {
     return(
         <StyledVideo>
             <div className="hero__content">
-                <video className="hero__video" src={videotobeshown} ref={videoRef} onLoadedMetadata={handleLoadedMetadata}
+              <div className="tt">{videoDuration}{currentVideoTime}</div>
+                <video className="hero__video" src={videotobeshown} ref={videoRef} onLoadedMetadata={handleLoadedMetadata} onTimeUpdate={handleTimeUpdate}
                     aria-label="Figure is the first-of-its-kind AI robotics company bringing a general purpose humanoid to life.">
                 </video>
                 <div className="hero__main">

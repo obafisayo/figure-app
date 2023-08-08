@@ -11,7 +11,6 @@ import potential_walking  from "../assets/potential_walking.webp"
 import ShortText from "../Components/ShortText";
 import FigureNews from "../Components/FigureNews";
 import HumanForm from "../Components/HumanForms";
-// import HumanFor from "../Components/hh";
 
 const StyledMain = styled.main`
     display: block;
@@ -57,11 +56,6 @@ function Home() {
     };
   }, []);
 
-
-
-    
-
-
     return (
         <StyledMain>
             <div className="hero hero--layout-1 hero--is-home" ref={videoRef}>
@@ -73,7 +67,6 @@ function Home() {
                 header={"We’re engineering the humanoid to make humans capable of more."} 
                 paragraph={"With the first humanoid by our side in the workforce, we’ll have the ability to create and produce so much more, address drastic labor shortages, and reduce the number of workers in unsafe jobs."}
             />
-            {/* <HumanFor/> */}
             <HumanForm/>
             <ShortText to={"/about-us"} bt={"About Us"} bcc={"#f6f6ef"}
                 kicker={"Designed for our world"}
