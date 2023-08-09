@@ -30,9 +30,7 @@ function Home() {
 
   return (
     <StyledMain>
-        <div className="hero hero--layout-1 hero--is-home">
-          <EnteredDiv showLeaveFunction element={<Video videotobeshown={aiVideo}/>} threshold={0} whenDivIsentered={homeIsEntered} whenYouLeaveDiv={homeIsLeft}/>
-        </div>
+        <EnteredDiv showLeaveFunction element={<Video videotobeshown={aiVideo}/>} threshold={0} whenDivIsentered={homeIsEntered} whenYouLeaveDiv={homeIsLeft}/>
         <TextLoader/>
         <Image img1={Humanoid_walking_tall} img2={Humanoid_walking}/>
         <ShortText to={"/master-plan"} bt={"See our Master Plan"} 

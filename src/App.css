@@ -112,15 +112,25 @@ body.is-unscrollable {
 .section--with-background {
   margin: unset;
 }
+.section__anchor {
+  position: absolute;
+  top: -7.2rem;
+}
+strong {
+  font-weight: bold;
+}
 
 @media screen and (min-width: 768px){
   body {
     font-size: 1.6rem;
   }
   .navigation.is-home-link-shown .navigation__home-link-wrapper {
-      margin: 0 0.8rem 0 0;
-      width: 3.6rem;
-      opacity: 1;
-      visibility: visible;
+    margin: 0 0.8rem 0 0;
+    width: 3.6rem;
+    opacity: 1;
+    visibility: visible;
+  }
+  .section__anchor {
+    top: -12.8rem;
   }
 } 

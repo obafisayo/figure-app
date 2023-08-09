@@ -21,7 +21,7 @@ const StyledHeader = styled.header`
     .is-home .navigation__home-link {
         pointer-events: none;
     }
-    .navigation__home-link {//logo
+    .navigation__home-link {
         transition: background-color .3s ease-in-out;
         display: flex;
         justify-content: center;
@@ -218,7 +218,7 @@ const StyledHeader = styled.header`
         .navigation__toggle {
             display: none;
         }
-        .navigation__link { //the border around the nav els
+        .navigation__link { 
             transition: background-color .3s ease-in-out;
             background-color: #fff;
             :hover{
@@ -228,11 +228,18 @@ const StyledHeader = styled.header`
         }
         .navigation__link.active .navigation__link-background {
             background: linear-gradient(180deg,#ff38bb 4.25%,#ff8038 51.61%,#f5be66 80.43%,#f4dca8 93.03%);
+            
+        }
+        .navigation__link.active:hover{
+            .navigation__link-background {
+                transition: all .3s ease-in-out;
+                background: #797af2;
+            }
         }
         .navigation__link-separator {
             display: none;
         }
-        .navigation__link-button-text {// the color of the nav els when hovered
+        .navigation__link-button-text { 
             padding: 0 1rem;
             height: 3.6rem;
             transition:border-color .3s ease-in-out background-color .3s ease-in-out;
