@@ -137,7 +137,7 @@ function HumanForms (){
       for (let i = 0; i <= 20; i++){
         setTimeout(() => {
             setPayload(i)
-        }, i * (delay / 25));
+        }, i * (delay / 20));
       }
     }
   }
