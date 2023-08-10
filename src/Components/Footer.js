@@ -12,10 +12,8 @@ import ContactModal from "./ContactModal";
 import Totop from "./Totop";
 
 const StyledFooter = styled.footer`
-    display: block;
     background-color: #f6f6ef;
-    padding: 6rem var(--content-padding) 4rem var(--content-padding);
-
+    padding: 6rem var(--content-padding);
     .footer__inner {
         width: 100%;
         max-width: 256rem;
@@ -32,12 +30,7 @@ const StyledFooter = styled.footer`
     }
     .footer__logo {
         width: 100%;
-        margin-bottom: 5rem;
-        overflow: clip;
-    }
-    img {
-    overflow-clip-margin: content-box;
-    overflow: clip;
+        margin-bottom: 6rem;
     }
     .footer__left-inner {
         width: 100%;
@@ -156,9 +149,46 @@ const StyledFooter = styled.footer`
     .contact-modal__button-icon::after {
         transform: translate(-50%,-50%) rotate(135deg);
     }
+    .footer__primary-link{
+        line-height: 1.11;
+        font-family: inherit,serif;
+        font-feature-settings: "ss12" on;
+        font-size: 3.4rem;
+        font-weight: 400;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        counter-increment: number__primary-links-counter;
+        text-decoration: none;
+        color: #0c0c0c;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 1.5rem 0 1.7rem;
+        /* padding: 2.5rem 0 1.7rem; */
+        cursor: pointer;
+    }
+    .footer__primary-link:first-child {
+        padding-top: 0;
+    }
+    .footer__primary-link:not(:first-child) {
+        border-top: 0.1rem solid hsla(0,0%,5%,.2);
+    }
+    .footer__primary-link:before {
+        line-height: 1.11;
+        font-family: inherit,serif;
+        font-feature-settings: "ss12" on;
+        font-size: 1.8rem;
+        font-weight: 500;
+        letter-spacing: -.01em;
+        text-transform: uppercase;
+        content: counter(number__primary-links-counter,decimal-leading-zero);
+        display: block;
+        margin-right: 2.4rem;
+        color: #0c0c0c;
+    }
 
     @media screen and (min-width: 768px){
-            padding: 10rem var(--content-padding) 4rem;
+        padding: 10rem var(--content-padding) 4rem var(--content-padding);
 
         .footer__secondary-links {
             display: flex;
@@ -174,6 +204,16 @@ const StyledFooter = styled.footer`
         }
         .contact-modal__button-icon::after, .contact-modal__button-icon::before {
             width: 2.3rem;
+        }
+        .footer__primary-link{
+            padding: 1.5rem 1.7rem 2.5rem 0rem;
+            font-size: 5.2rem;
+            :before {
+                font-size: 2.4rem;
+                position: relative;
+                top: 0.1rem;
+                margin-right: 3rem;
+            }
         }
     } 
 
@@ -196,6 +236,10 @@ const StyledFooter = styled.footer`
 
 function Footer(){
     const [state, setState] = useState(false)
+    const [hoverIt, setHoverIt] = useState(false)
+    const [hoverIt1, setHoverIt1] = useState(false)
+    const [hoverIt2, setHoverIt2] = useState(false)
+    const [hoverIt3, setHoverIt3] = useState(false)
     const contactModalRef = useRef(null)
 
     function handleClick(){
@@ -229,10 +273,18 @@ function Footer(){
                             <Totop
                                 component={
                                     <>
-                                        <PrimaryLinks link to={'/about-us'} ls={'3px'} slide title={'About Us'} text={'ABOUT US'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide/>
-                                        <PrimaryLinks link to={'/master-plan'} ls={'3px'} slide title={'Master-plan'} text={'MASTER PLAN'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide/>
-                                        <PrimaryLinks link to={'/culture'} ls={'3px'} slide title={'Culture'} text={'CULTURE'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide/>
-                                        <PrimaryLinks link to={'/careers'} ls={'3px'} slide title={'Careers'} text={'CAREERS'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide/>
+                                        <Link className="footer__primary-link" to='/about-us' title='About Us' onMouseEnter={() => setHoverIt(true)} onMouseLeave={() => setHoverIt(false)}> 
+                                            <PrimaryLinks link  ls={'0'} slide title={'About Us'} text={'ABOUT US'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide hoverIt={hoverIt}/>
+                                        </Link>
+                                        <Link className="footer__primary-link" to='/master-plan' title='Master-plan' onMouseEnter={() => setHoverIt1(true)} onMouseLeave={() => setHoverIt1(false)}>
+                                            <PrimaryLinks link  ls={'0'} slide title={'Master-plan'} text={'MASTER PLAN'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide hoverIt={hoverIt1}/>
+                                        </Link>
+                                        <Link className="footer__primary-link" to='/culture' title='Culture' onMouseEnter={() => setHoverIt2(true)} onMouseLeave={() => setHoverIt2(false)}>
+                                            <PrimaryLinks link ls={'0'} slide title={'Culture'} text={'CULTURE'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide hoverIt={hoverIt2}/>
+                                        </Link>
+                                        <Link className="footer__primary-link" to='/careers' title='Careers' onMouseEnter={() => setHoverIt3(true)} onMouseLeave={() => setHoverIt3(false)}>
+                                            <PrimaryLinks link ls={'0'} slide title={'Careers'} text={'CAREERS'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide hoverIt={hoverIt3}/>
+                                        </Link>
                                     </>
                                 }
                             />
