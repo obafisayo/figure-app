@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
@@ -49,11 +50,11 @@ function Button({text, fsz, width, to, link, mff}) {
     return (
         <StyledButton width={width} fsz={fsz} mff={mff}>
             {link?  
-                <a href={to}>{text}</a>
+                <Link to={to}>{text}</Link>
                  : 
                  `${text}`
             }
         </StyledButton>
     )
 }
-export default Button
+export default Button;
