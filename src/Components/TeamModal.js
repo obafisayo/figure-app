@@ -59,7 +59,7 @@ const StyledDiv = styled.div`
     }
     .locator{
         position: relative;
-        top: -30px;
+        top: -60px;
     }
 
     @media screen and (min-width: 768px){
