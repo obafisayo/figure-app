@@ -5,7 +5,8 @@ import Button from "./Button";
 const StyledSection = styled.section`
     background-color: ${({bcc}) => bcc || 'white'};
     position: relative;
-    padding: 8rem var(--content-padding);
+    padding: ${({nomargin}) => nomargin? '0 var(--content-padding)' : '4rem var(--content-padding) 8rem'};
+    color:  ${({color}) => color || '#0c0c0c'};
 
     .section--full-image+.section--cta {
         margin: 4rem 0 8rem;
@@ -25,7 +26,7 @@ const StyledSection = styled.section`
     .cta__heading-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: ${({nomargin}) => nomargin? "0" : '2rem'};
         width: 100%;
         max-width: 57.2rem;
     }
@@ -36,8 +37,8 @@ const StyledSection = styled.section`
         white-space: pre-line;
         font-size: 14px;
         line-height: 21px;
-        color: #0c0c0c;
-        font-family: neue-haas-grot-text,sans-serif;
+        color:  ${({color}) => color || '#0c0c0c'};
+        font-family: FreeSansMedium, sans-serif;
         font-weight: 400;
     }
     .cta__heading {
@@ -48,7 +49,7 @@ const StyledSection = styled.section`
         margin: 0;
     }
     .cta__heading, .cta__kicker {
-        font-family: neue-haas-grot-text,sans-serif;
+        font-family: FreeSansMedium,sans-serif;
     }
     .cta__kicker {
         line-height: 1.2;
@@ -56,16 +57,17 @@ const StyledSection = styled.section`
         font-weight: 600;
         letter-spacing: 0;
     }
-    @media screen and (min-width: 1024px){
-        padding-left: var(--content-padding);
-        padding-right: 10rem;
+    @media (min-width: 1024px){
+        .cta{
+            padding-right: 8rem;
+        }
 
         .section--full-image+.section--cta {
             margin: 12rem 0 16rem;
         }
     }
     @media screen and (min-width: 768px){
-        padding: 16rem var(--content-padding);
+        padding: ${({nomargin}) => nomargin? '0 var(--content-padding)' : '12rem var(--content-padding) 16rem'};
 
         .section__anchor {
             top: -12.8rem;
@@ -79,7 +81,7 @@ const StyledSection = styled.section`
             gap: 3rem;
         }
         .cta__heading-wrapper {
-            gap: 3rem;
+            gap: 0rem;
         }
         .cta__description-wrapper {
             display: flex;
@@ -101,23 +103,25 @@ const StyledSection = styled.section`
         }
     }
 `;
-function ShortText({header, paragraph, to, bt, paragraph2, kicker, bcc}) {
+function ShortText({header, paragraph, to, bt, paragraph2, kicker, bcc, nomargin, color}) {
     return(
-        <StyledSection bcc={bcc} paragraph2={paragraph2}>
-            <div id="were-engineering-the-humanoid-to-make-humans-capable-of-more" className="section__anchor"></div>
-            <div className="cta__content">
-                <div className="cta__heading-wrapper">
-                    <div className="cta__kicker">{kicker}</div>
-                    <h1 className="cta__heading">{header}</h1>
-                </div>
-                <div className="cta__description-wrapper">
-                    <p className="cta__description">{paragraph}</p>
-                    {paragraph2 && <>
-                        <p className="cta__description">{paragraph2}</p>
-                    </>}
-                </div>
-                <div className="cta__cta">
-                    <Button mff={"FreeSans"} link to={to} text={bt}/>
+        <StyledSection bcc={bcc} paragraph2={paragraph2} nomargin={nomargin} color={color}>
+            <div className="cta">
+                <div id="were-engineering-the-humanoid-to-make-humans-capable-of-more" className="section__anchor"></div>
+                <div className="cta__content">
+                    <div className="cta__heading-wrapper">
+                        <div className="cta__kicker">{kicker}</div>
+                        <h1 className="cta__heading">{header}</h1>
+                    </div>
+                    <div className="cta__description-wrapper">
+                        <p className="cta__description">{paragraph}</p>
+                        {paragraph2 && <>
+                            <p className="cta__description">{paragraph2}</p>
+                        </>}
+                    </div>
+                    <div className="cta__cta">
+                        <Button link to={to} text={bt}/>
+                    </div>
                 </div>
             </div>
         </StyledSection>

@@ -378,7 +378,7 @@ function Video({videotobeshown}) {
                             </svg>
                         </button>
                         <a target="_blank"  rel="noreferrer" href="https://www.youtube.com/watch?v=b37rQZ4maPo">
-                            <Slider text={'Watch the full video'} icon arrowUpRight light slide bordercolor={'white'}/>
+                            <Slider text={'Watch the full video'} icon arrowUpRight light slide bordercolor={'white'} ff={'FreeSans, sans-serif'}/>
                         </a>
                     </div>
                 </div>

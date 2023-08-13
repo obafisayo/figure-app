@@ -1,77 +1,12 @@
 import React from "react";
-import styled from "styled-components";
-const StyledSection  = styled.section`
-    position: relative;
-    .legal-content {
-        padding: 9rem var(--content-padding) 6rem;
-    }
-    .legal-content__inner {
-        max-width: 92.5rem;
-        margin: 0 auto;
-    }
-    .legal-content__heading {
-        line-height: 1;
-        font-family: pp-neue-machina-plain,serif;
-        font-size: 4.2rem;
-        font-weight: 600;
-        font-feature-settings: "ss12" on;
-        letter-spacing: -.01em;
-        text-transform: uppercase;
-        margin: 0;
-    }
-    .gradient-rich-text__gradient-text {
-        background: linear-gradient(270deg,#ff38bb 4.25%,#ff8038 51.61%,#f5be66 80.43%,#f4dca8 93.03%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        font-weight: 600;
-    }
-    .legal-content__modified-at {
-        line-height: 1.2;
-        font-family: neue-haas-grot-text,sans-serif;
-        font-size: 1.4rem;
-        font-weight: 600;
-        letter-spacing: 0;
-        margin: 3rem 0 6rem;
-    }
-    .rich-text-paragraph {
-        font-family: FreeSans,sans-serif;
-        font-weight: 400;
-        font-size: 1.8rem;
-        line-height: 160%;
-        letter-spacing: -.01em;
-    }
-    .rich-text-bold {
-        font-weight: 600;
-        font-family: FreeSansBold,sans-serif;
-    }
-    @media (min-width: 768px){
-        .legal-content {
-            padding: 22rem var(--content-padding) 12rem;
-        }
-        .legal-content__heading {
-            font-size: 8.5rem;
-        }
-        .legal-content__modified-at {
-            margin: 4rem 0 6rem;
-        }
-        .rich-text-paragraph {
-            font-size: 1.9rem;
-        }
-    }
-`;
+import TextGradient from "../Components/TextGradient";
+
 function Terms() {
-    return (
-        <StyledSection>
-        <section className="section legal-content">
+    return ( 
+        <section className=" section legal-content">
             <div id="terms-conditions" className="section__anchor"></div>
             <article className="legal-content__inner">
-                <h1 className="legal-content__heading">
-                    <span className="gradient-rich-text__heading-text">
-                        Terms &amp; <strong className="gradient-rich-text__gradient-text">Conditions</strong>
-                    </span>
-                </h1>
-                <div className="legal-content__modified-at">Last updated: February 01, 2023</div>
+                <TextGradient text={"Terms & "} gtext={'Conditions'} activeness={true} modifiedAt={'Last updated: February 01, 2023'}/>
                 <div className="legal-content__content">
                     <p className="rich-text-paragraph">
                         <b className="rich-text-bold">Agreement between User and www.figure.ai</b>
@@ -203,7 +138,6 @@ function Terms() {
                 </div>
             </article>
         </section>
-        </StyledSection>
     )
 }
 export default Terms

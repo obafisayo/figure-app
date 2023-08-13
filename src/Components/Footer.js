@@ -10,6 +10,7 @@ import Icon from "./Icons";
 import Slider from "./Slider";
 import ContactModal from "./ContactModal";
 import Totop from "./Totop";
+import ModalButton from "./ModalButton";
 
 const StyledFooter = styled.footer`
     background-color: #f6f6ef;
@@ -108,47 +109,6 @@ const StyledFooter = styled.footer`
         max-width: 49.3rem;
         background-color: #f6f6ef;
     }
-    .contact-modal__button {
-        transition: color .3s ease-in-out,background-color .3s ease-in-out;
-        position: absolute;
-        top: 2rem;
-        right: 2rem;
-        padding: 0;
-        width: 3rem;
-        height: 3rem;
-        color: #0c0c0c;
-        background-color: #fff;
-        border-radius: 0.4rem;
-        border: none;
-        cursor: pointer;
-        :hover{
-            transition: color .3s ease-in-out,background-color .3s ease-in-out;
-            background-color: #797af2;
-        }
-    }
-    .contact-modal__button::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        width: 4.4rem;
-        height: 4.4rem;
-    }
-    .contact-modal__button-icon::after, .contact-modal__button-icon::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%) rotate(45deg);
-        display: block;
-        width: 2rem;
-        height: 0.1rem;
-        background-color: currentcolor;
-    }
-    .contact-modal__button-icon::after {
-        transform: translate(-50%,-50%) rotate(135deg);
-    }
     .footer__primary-link{
         line-height: 1.11;
         font-family: inherit,serif;
@@ -198,13 +158,6 @@ const StyledFooter = styled.footer`
             margin-bottom: 6rem;
             padding-top: 0.9rem;
         }
-        .contact-modal__button {
-            width: 4rem;
-            height: 4rem;
-        }
-        .contact-modal__button-icon::after, .contact-modal__button-icon::before {
-            width: 2.3rem;
-        }
         .footer__primary-link{
             padding: 1.5rem 1.7rem 2.5rem 0rem;
             font-size: 5.2rem;
@@ -252,6 +205,7 @@ function Footer(){
         const contactModalRefEl = contactModalRef.current
         contactModalRefEl.classList.remove('is-active')
         document.body.classList.remove('is-unscrollable')
+        setState(prevState => !prevState)
     }
     return(
         <StyledFooter className="footer">
@@ -302,9 +256,7 @@ function Footer(){
             </div>
             <div className="contact-modal" aria-hidden={state} ref={contactModalRef}>
                 <article className="contact-modal__content">
-                    <button className="contact-modal__button" aria-label="Close contact form" onClick={handleContactClick}>
-                        <span className="contact-modal__button-icon"></span>
-                    </button>
+                    <ModalButton ariaLabel={'Close contact form'} onClick={handleContactClick}></ModalButton>
                     <ContactModal/>
                 </article>
             </div>

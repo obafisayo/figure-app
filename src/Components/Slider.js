@@ -6,13 +6,13 @@ import useContextState from "../useContextState";
 const SliderButton = styled.button`
     transition: background-size .3s ease-in-out;
     line-height: 1.2;
-    font-family: inherit, sans-serif;
+    font-family:  ${({ff}) => ff || 'inherit, sans-serif'};
     font-size: ${({fsz}) => fsz || '1.4rem'};
     font-weight: ${({fw}) => fw || '500'};
     letter-spacing: ${({ls}) => ls || '0'};
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+    justify-content: ${({sb}) => sb? 'space-between' : 'center'};
     color: ${({light}) => light? '#ffffff' : '#0c0c0c'} ;
     text-decoration: none;
     border: none;
@@ -48,10 +48,10 @@ const SliderButton = styled.button`
     }
 `;
 
-function Slider({news, text, icon, plus, arrowUpRight, arrowLeft, arrowRight, slide, ls, fsz, mfsz, fw, height, hovered, unslide, light, bordercolor}) {
+function Slider({news, text, icon, plus, arrowUpRight, arrowLeft, arrowRight, slide, ls, fsz, mfsz, fw, height, hovered, unslide, light, bordercolor, ff, sb }) {
     const {hover, onLeave, onEnter} = useContextState()
     return(
-        <SliderButton news={news} unslide={unslide} slide={slide} fsz={fsz} fw={fw} mfsz={mfsz} ls={ls} height={height} onMouseEnter={onEnter} onMouseLeave={onLeave} hovered={hovered} light={light} bordercolor={bordercolor}>
+        <SliderButton ff={ff} news={news} unslide={unslide} slide={slide} fsz={fsz} fw={fw} mfsz={mfsz} ls={ls} height={height} onMouseEnter={onEnter} onMouseLeave={onLeave} hovered={hovered} light={light} bordercolor={bordercolor} sb={sb}>
             {text}
             { icon && plus && <Svg plus hov={hover}/>}
             { icon && arrowUpRight && <Svg arrowUpRight hov={hover} hove={hovered}/>}

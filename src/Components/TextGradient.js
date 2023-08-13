@@ -31,14 +31,26 @@ const StyledDiv = styled.div`
         color: transparent;
         font-weight: 600;
     }
+    .legal-content__modified-at {
+        line-height: 1.2;
+        font-family: neue-haas-grot-text,sans-serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        letter-spacing: 0;
+        margin: 3rem 0 6rem;
+    }
+    
     @media screen and (min-width: 768px){
         .rotating-text-module__heading{
             font-size: 85px;
         }
+        .legal-content__modified-at {
+            margin: 4rem 0 6rem;
+        }
     }
 `; 
 
-function TextGradient({text, ntext, gtext, activeness}) {
+function TextGradient({text, ntext, gtext, activeness, modifiedAt}) {
    
     return(
         <StyledDiv>
@@ -50,6 +62,7 @@ function TextGradient({text, ntext, gtext, activeness}) {
                     </span>
                 </span>
             </h1>}
+            <div className="legal-content__modified-at">{modifiedAt}</div>
         </StyledDiv>
     )
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Totop from "./Totop";
 
 const StyledButton = styled.button`
     line-height: 1.2;
@@ -50,7 +51,7 @@ function Button({text, fsz, width, to, link, mff}) {
     return (
         <StyledButton width={width} fsz={fsz} mff={mff}>
             {link?  
-                <Link to={to}>{text}</Link>
+                <Totop component={<Link to={to}>{text}</Link>}/>
                  : 
                  `${text}`
             }
