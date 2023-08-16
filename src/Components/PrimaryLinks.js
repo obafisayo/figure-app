@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Slider from "./Slider";
 import Svg from "./Svg";
-// import { Link } from "react-router-dom";
 
 const StyledPrimaryLinks = styled.div`
     line-height: 1.11;
-    font-family: inherit,serif;
+    font-family: pp-neue-machina-plain, serif;
     font-feature-settings: "ss12" on;
     font-size: 3.4rem;
     font-weight: 400;
@@ -34,10 +33,10 @@ const StyledPrimaryLinks = styled.div`
     }
     :before {
     line-height: 1.11;
-    font-family: inherit,serif;
+    font-family: pp-neue-machina-plain, serif;
     font-feature-settings: "ss12" on;
     font-size: 1.8rem;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: -.01em;
     text-transform: uppercase;
     content: counter(number__primary-links-counter,decimal-leading-zero);
@@ -85,8 +84,8 @@ function PrimaryLinks({title, text, icon, paddingTop, borderBottom, borderTop, s
         setHover(false)
     }
     
-    const thereisSliderSlide =  <Slider ls={ls} mfsz={mfsz} hovered={hoverIt || hover} fsz={fsz} fw={fw} height={height} unslide={unslide} slide text={text} /> 
-    const thereNoHover =  <Slider mfsz={mfsz} fsz={'3.4rem'} fw={'600'} height={'2px'} text={text} /> 
+    const thereisSliderSlide =  <Slider ls={ls} mfsz={mfsz} hovered={hoverIt || hover} fsz={fsz} fw={fw} height={height} unslide={unslide} slide text={text} ff={'pp-neue-machina-plain'}/> 
+    const thereNoHover =  <Slider mfsz={mfsz} fsz={'3.4rem'} fw={'400'} height={'2px'} text={text} /> 
     const thereisIcon = <S>{thereisSliderSlide} <Svg hov={hover} plus /> </S>
 
     function PrimaryLinks() {

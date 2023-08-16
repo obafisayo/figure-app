@@ -26,13 +26,13 @@ const StyledLi = styled.li`
         text-transform: uppercase;
         content: counter(values-module-counter,decimal-leading-zero);
         display: block;
-        font-family: NeueMachina-Regular,serif;
+        font-family: pp-neue-machina-plain,serif;
         font-feature-settings: "ss12" on;
         white-space: nowrap;
     }
     .values-module-item__heading-text {
         line-height: 1.11;
-        font-family: NeueMachina-Regular,serif;
+        font-family: pp-neue-machina-plain,serif;
         font-feature-settings: "ss12" on;
         font-size: 3.4rem;
         font-weight: 400;
@@ -42,38 +42,37 @@ const StyledLi = styled.li`
         max-width: 60rem;
     }
     .values-module-item__description-text {
-        font-family: FreeSans, serif;
+        font-family: neue-haas-grot-text, serif;
         width: 100%;
         margin: 0;
     }
 
-@media screen and (min-width: 1024px){
-    gap: 2rem;
-    grid-template-columns: .04fr .5fr .46fr;
-    .values-module-item__description {
-        justify-self: flex-end;
-    }
-    .values-module-item__description-text {
-        max-width: 45.5rem;
-    }
-}
+    @media screen and (min-width: 768px){
+        padding: 4.2rem 0;
 
-@media screen and (min-width: 768px){
-    padding: 4.2rem 0;
+        :first-child {
+            border-top: 0.1rem solid;
+        }
+        .values-module-item__index-text:before {
+            font-size: 2.4rem;
+            position: relative;
+            top: 0.9rem;
+        }
+        .values-module-item__heading-text {
+            font-size: 5.2rem;
+        }
 
-    :first-child {
-        border-top: 0.1rem solid;
     }
-    .values-module-item__index-text:before {
-        font-size: 2.4rem;
-        position: relative;
-        top: 0.9rem;
+    @media screen and (min-width: 1024px){
+        gap: 2rem;
+        grid-template-columns: .04fr .5fr .46fr;
+        .values-module-item__description {
+            justify-self: flex-end;
+        }
+        .values-module-item__description-text {
+            max-width: 45.5rem;
+        }
     }
-    .values-module-item__heading-text {
-        font-size: 5.2rem;
-    }
-
-}
 `;
 function ValueList({paragraph, header}) {
     return(

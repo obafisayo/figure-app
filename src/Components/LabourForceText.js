@@ -9,7 +9,7 @@ const StyledSection = styled.div`
     
     .stats-item__heading {
         line-height: 1.1;
-        font-family: FreeSans, sans-serif;
+        font-family: neue-haas-grot-text, sans-serif;
         font-size: 2.4rem;
         font-weight: 400;
         letter-spacing: -.01em;
@@ -22,7 +22,7 @@ const StyledSection = styled.div`
     }
     .stats-item__stat-text {
         line-height: 1;
-        font-family: NeueMachina-Regular, sans-serif;
+        font-family: pp-neue-machina-plain, sans-serif;
         font-size: 5.2rem;
         font-feature-settings: "ss12" on;
         letter-spacing: -.01em;

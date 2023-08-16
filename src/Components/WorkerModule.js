@@ -46,7 +46,7 @@ const StyledSection = styled.section`
     }
     .intro-worker-module__kicker {
         line-height: 1.2;
-        font-family: FreeSans,sans-serif;
+        font-family: neue-haas-grot-text,sans-serif;
         font-size: 1.5rem;
         font-weight: 500;
         letter-spacing: 0;
@@ -58,9 +58,9 @@ const StyledSection = styled.section`
     }
     .intro-worker-module__title {
         line-height: 1;
-        font-family: NeueMachina-Regular,serif;
+        font-family: pp-neue-machina-plain,serif;
         font-size: 4.2rem;
-        font-weight: 600;
+        font-weight: 400;
         font-feature-settings: "ss12" on;
         letter-spacing: -.01em;
         text-transform: uppercase;

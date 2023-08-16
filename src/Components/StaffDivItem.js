@@ -40,7 +40,7 @@ const StyledDiv = styled.div`
     }
     .team-member__name {
         line-height: 1.5;
-        font-family: FreeSansMedium,sans-serif;
+        font-family: neue-haas-grot-text,sans-serif;
         font-size: 1.8rem;
         font-weight: 400;
         letter-spacing: -.01em;
@@ -49,7 +49,7 @@ const StyledDiv = styled.div`
     }
     .team-member__title {
         line-height: 1.2;
-        font-family: FreeSansMedium,sans-serif;
+        font-family: neue-haas-grot-text,sans-serif;
         font-size: 1.4rem;
         font-weight: 500;
         letter-spacing: 0;

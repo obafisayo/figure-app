@@ -5,7 +5,7 @@ import Totop from "./Totop";
 
 const StyledButton = styled.button`
     line-height: 1.2;
-    font-family: ${({mff}) => mff || 'FreeSansBold'};
+    font-family: ${({mff}) => mff || 'neue-haas-grot-text'};
     font-size: ${({fsz}) => fsz || '1.4rem'};
     font-weight: 400;
     letter-spacing: 0;
@@ -33,7 +33,7 @@ const StyledButton = styled.button`
         color: #0c0c0c;
         font-size: ${({fsz}) => fsz || '1.4rem'};
         font-weight: 400;
-        font-family: ${({mff}) => mff || 'FreeSansBold'};
+        font-family: ${({mff}) => mff || 'neue-haas-grot-text'};
     }
     :hover{
         transition: all 0.4s ease-in-out;
@@ -43,7 +43,7 @@ const StyledButton = styled.button`
         height: 4.8rem;
         border-radius: 2.4rem;
         a{
-            font-family: FreeSansBold;
+            font-family: neue-haas-grot-text;
         }
     }
 `;

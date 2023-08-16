@@ -1,37 +1,33 @@
 @font-face {
-  font-family: FreeSans;
-  src: url(fonts/FreeSans.ttf) format("truetype");
-}
-@font-face {
-  font-family: FreeSansBold;
-  src: url(fonts/FreeSansBold.ttf) format("truetype");
-}
-@font-face {
-  font-family: NeueMachina-Regular;
-  src: url(fonts/NeueMachina-Regular.otf) ;
-}
-@font-face {
-  font-family: NeueMachina-Light;
-  src: url(fonts/NeueMachina-Light.otf) ;
-}
-@font-face {
-  font-family: NeueMachina-Ultrabold;
-  src: url(fonts/NeueMachina-Ultrabold.otf) ;
-}
-@font-face {
-  font-family: FreeSansMedium;
+  font-family: pp-neue-machina-plain;
   font-style: normal;
-  font-weight: normal;
-  src: local('fonts/FreeSans.woff'), url('fonts/FreeSans.woff') format('woff');
-  }
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/pp-neue-machina-plain-regular.woff2') format("woff2");
+}
+
 @font-face {
-  font-family: 'FreeSansBold';
+  font-family: pp-neue-machina-plain;
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/pp-neue-machina-plain-regular.woff2') format("woff2");
+}
+@font-face {
+  font-family: neue-haas-grot-text;
   font-style: normal;
-  font-weight: normal;
-  src: local('fonts/FreeSansBold.woff'), url('fonts/FreeSansBold.woff') format('woff');
-  }
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/neue-haas-grot-text-55-roman.woff2') format("woff2");
+}
+@font-face {
+  font-family: neue-haas-grot-text;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/neue-haas-grot-text-65-medium.woff2') format("woff2");
+}
 *{
-  font-family:NeueMachina-Light, sans-serif;
   box-sizing: border-box;
 }
 :root{
@@ -42,7 +38,7 @@ img, svg {
 }
 h1 {
   line-height: 1;
-  font-family: FreeSans,serif;
+  font-family: neue-haas-grot-text,serif;
   font-size: 4.2rem;
   font-weight: 400;
   font-feature-settings: "ss12" on;
@@ -53,13 +49,9 @@ h1 {
 header {
   display: block;
 }
-dd {
-  display: block;
-  margin-inline-start: 40px;
-}
 body {
   line-height: 1.5;
-  font-family: FreeSans, sans-serif;
+  font-family: neue-haas-grot-text, sans-serif;
   font-size: 1.4rem;
   letter-spacing: -.01em;
   margin: 0;
@@ -120,15 +112,15 @@ strong {
   margin: 0 auto;
 }
 .rich-text-paragraph {
-  font-family: FreeSans,sans-serif;
+  font-family: neue-haas-grot-text,sans-serif;
   font-weight: 400;
   font-size: 1.8rem;
   line-height: 160%;
   letter-spacing: -.01em;
 }
 .rich-text-bold {
-  font-weight: 600;
-  font-family: FreeSansBold,sans-serif;
+  font-weight: 500;
+  font-family: neue-haas-grot-text,sans-serif;
 }
 .rich-text-link {
   text-decoration: underline;
@@ -169,4 +161,5 @@ strong {
   .rich-text-paragraph {
       font-size: 1.9rem;
   }
+  
 } 

@@ -63,7 +63,7 @@ const StyledFooter = styled.footer`
         letter-spacing: -.01em;
         color: hsla(0,0%,5%,.6);
         margin: 0 auto 0 0;
-        font-family: sans-serif;
+        font-family: neue-haas-grot-text,sans-serif;
     }
     .footer__secondary-link:nth-child(2n) {
         text-align: right;
@@ -74,7 +74,7 @@ const StyledFooter = styled.footer`
         text-decoration-line: underline;
         color: #0c0c0c;
         opacity: 0.6;
-        font-family: sans-serif;
+        font-family:neue-haas-grot-text, sans-serif;
         :hover{
             transition: opacity .3s ease-in-out;
             opacity: 1;
@@ -111,7 +111,7 @@ const StyledFooter = styled.footer`
     }
     .footer__primary-link{
         line-height: 1.11;
-        font-family: inherit,serif;
+        font-family: pp-neue-machina-plain,serif;
         font-feature-settings: "ss12" on;
         font-size: 3.4rem;
         font-weight: 400;
@@ -135,7 +135,7 @@ const StyledFooter = styled.footer`
     }
     .footer__primary-link:before {
         line-height: 1.11;
-        font-family: inherit,serif;
+        font-family: pp-neue-machina-plain,serif;
         font-feature-settings: "ss12" on;
         font-size: 1.8rem;
         font-weight: 500;
@@ -218,7 +218,7 @@ function Footer(){
                             </div>
                             <NewsletterMail paddingLeft={'0px'} background={'transparent'} icon={<Icon/>} />
                             <div className="footer__contact" onClick={handleClick}>
-                                <Slider fw={'600'} fsz={'1.4rem'} slide text={'Contact Us'} icon arrowUpRight />
+                                <Slider fw={'500'} fsz={'1.4rem'} slide text={'Contact Us'} icon arrowUpRight />
                             </div>
                         </div>
                     </div>
@@ -228,16 +228,16 @@ function Footer(){
                                 component={
                                     <>
                                         <Link className="footer__primary-link" to="/about-us"  title='About Us' onMouseEnter={() => setHoverIt(true)} onMouseLeave={() => setHoverIt(false)}> 
-                                            <PrimaryLinks link  ls={'0'} slide title={'About Us'} text={'ABOUT US'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide hoverIt={hoverIt}/>
+                                            <PrimaryLinks link  ls={'0'} slide title={'About Us'} text={'ABOUT US'} mfsz={'3.4rem'} fsz={'5rem'} fw={'400'} height={'3px'} unslide hoverIt={hoverIt}/>
                                         </Link>
                                         <Link className="footer__primary-link" to="/master-plan" title='Master-plan' onMouseEnter={() => setHoverIt1(true)} onMouseLeave={() => setHoverIt1(false)}>
-                                            <PrimaryLinks link  ls={'0'} slide title={'Master-plan'} text={'MASTER PLAN'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide hoverIt={hoverIt1}/>
+                                            <PrimaryLinks link  ls={'0'} slide title={'Master-plan'} text={'MASTER PLAN'} mfsz={'3.4rem'} fsz={'5rem'} fw={'400'} height={'3px'} unslide hoverIt={hoverIt1}/>
                                         </Link>
                                         <Link className="footer__primary-link" to="/culture" title='Culture' onMouseEnter={() => setHoverIt2(true)} onMouseLeave={() => setHoverIt2(false)}>
-                                            <PrimaryLinks link ls={'0'} slide title={'Culture'} text={'CULTURE'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide hoverIt={hoverIt2}/>
+                                            <PrimaryLinks link ls={'0'} slide title={'Culture'} text={'CULTURE'} mfsz={'3.4rem'} fsz={'5rem'} fw={'400'} height={'3px'} unslide hoverIt={hoverIt2}/>
                                         </Link>
                                         <Link className="footer__primary-link" to="/careers" title='Careers' onMouseEnter={() => setHoverIt3(true)} onMouseLeave={() => setHoverIt3(false)}>
-                                            <PrimaryLinks link ls={'0'} slide title={'Careers'} text={'CAREERS'} mfsz={'3.4rem'} fsz={'5rem'} fw={'600'} height={'3px'} unslide hoverIt={hoverIt3}/>
+                                            <PrimaryLinks link ls={'0'} slide title={'Careers'} text={'CAREERS'} mfsz={'3.4rem'} fsz={'5rem'} fw={'400'} height={'3px'} unslide hoverIt={hoverIt3}/>
                                         </Link>
                                     </>
                                 }

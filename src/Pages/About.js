@@ -26,7 +26,7 @@ const StyledMain = styled.main`
     }
     .text-hero__heading {
         line-height: 1;
-        font-family:  NeueMachina-Regular, serif;
+        font-family:  pp-neue-machina-plain, serif;
         font-size: 4.2rem;
         font-weight: 400;
         font-feature-settings: "ss12" on;

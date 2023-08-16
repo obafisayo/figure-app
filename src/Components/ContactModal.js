@@ -23,7 +23,7 @@ const StyledDiv = styled.div`
     }
     .contact-modal__heading {
         line-height: 1.1;
-        font-family: FreeSans, sans-serif;
+        font-family: naue-haas-grot-text, sans-serif;
         font-size: 2.4rem;
         font-weight: 400;
         letter-spacing: -.01em;
@@ -31,7 +31,7 @@ const StyledDiv = styled.div`
     }
     .contact-modal__description {
         line-height: 1.5;
-        font-family: FreeSans, sans-serif;
+        font-family: naue-haas-grot-text, sans-serif;
         font-size: 1.4rem;
         letter-spacing: -.01em;
         margin: 0;
@@ -63,7 +63,7 @@ const StyledDiv = styled.div`
     }
     .contact-modal__recaptcha-text {
         line-height: 1.5;
-        font-family: FreeSans, sans-serif;
+        font-family: naue-haas-grot-text, sans-serif;
         font-size: 1.4rem;
         letter-spacing: -.01em;
         color: hsla(0,0%,5%,.6);

@@ -47,7 +47,7 @@ const StyledSection = styled.section`
   }
   .human-form-module__heading {
       line-height: 1;
-      font-family: NeueMachina-Regular,serif;
+      font-family: pp-neue-machina-plain,serif;
       font-size: 4.2rem;
       font-weight: 400;
       font-feature-settings: "ss12" on;
@@ -57,7 +57,7 @@ const StyledSection = styled.section`
   }
   .human-form-module__description {
       line-height: 1.5;
-      font-family: Freesans,sans-serif;
+      font-family: naue-haas-grot-text,sans-serif;
       font-size: 1.4rem;
       letter-spacing: -.01em;
       margin: 0;
@@ -65,12 +65,6 @@ const StyledSection = styled.section`
   .human-form-module__items {
       margin: 0;
       padding: 0;
-  }
-
-  @media screen and (min-width: 1024px){
-      .human-form-module__inner {
-          grid-template-columns: minmax(0,.5fr) minmax(0,.5fr);
-      }
   }
 
   @media screen and (min-width: 768px) {
@@ -102,6 +96,11 @@ const StyledSection = styled.section`
     .human-form-module__items {
         padding: 9rem 0 0;
     }
+  }
+  @media screen and (min-width: 1024px){
+      .human-form-module__inner {
+          grid-template-columns: minmax(0,.5fr) minmax(0,.5fr);
+      }
   }
 `;
 function HumanForms (){
@@ -214,7 +213,7 @@ function HumanForms (){
             <EnteredDiv element={<HumanFormText title={'Height'} value={`${height}'6"`}/>} threshold={0.5} whenDivIsentered={heightEntered} />
             <EnteredDiv element={<HumanFormText title={'Payload'} value={`${payload}kg`}/>} threshold={0.5} whenDivIsentered={payloadEntered} />
             <EnteredDiv element={<HumanFormText title={'Weight'} value={`${weight}kg`}/>} threshold={0.5} whenDivIsentered={weightEntered} />
-            <EnteredDiv element={<HumanFormText title={'Runtime'} value={`${runtime}kg`}/>} threshold={0.5} whenDivIsentered={runtimeEntered} />
+            <EnteredDiv element={<HumanFormText title={'Runtime'} value={`${runtime}HR`}/>} threshold={0.5} whenDivIsentered={runtimeEntered} />
             <EnteredDiv element={<HumanFormText title={'Speed'} value={`${speed}M/S`}/>} threshold={0.5} whenDivIsentered={speedEntered} />
             <EnteredDiv element={<HumanFormText title={'System'} value={`${system}`}/>} threshold={0.5} whenDivIsentered={systemEntered} />
           </dl>

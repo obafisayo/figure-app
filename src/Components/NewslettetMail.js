@@ -24,7 +24,7 @@ const Newsletter = styled.section`
 
     .footer__newsletter-heading {
         line-height: 1.5;
-        font-family: FreeSansMedium, sans-serif;
+        font-family: neue-haas-grot-text, sans-serif;
         font-size: 1.9rem;
         font-weight: 400;
         letter-spacing: -.01em;
@@ -32,7 +32,7 @@ const Newsletter = styled.section`
     }
     .footer__newsletter-description {
         margin: 0 0 2.4rem;
-        font-family: FreeSans, sans-serif;
+        font-family: neue-haas-grot-text, sans-serif;
         font-size: 1.7rem;
         font-weight: 400;
     }

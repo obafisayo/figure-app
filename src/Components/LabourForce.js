@@ -29,7 +29,7 @@ function LabourForce() {
                 <div id="stats-module" className="section__anchor"></div>
                 <div className="stats-module__inner">
                     <div className="stats-item">
-                        <LabourForceText h1={'There are 10 million un-filled jobs in the United States.'} span={'10M'}/>
+                        <LabourForceText h1={'There are 10 million unfilled jobs in the United States.'} span={'10M'}/>
                     </div>
                     <div className="stats-item">
                         <LabourForceText h1={'7 million of those job openings are for essential roles in warehouses, transportation, and retail.'} span={'7M'}/>

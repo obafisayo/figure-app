@@ -13,6 +13,9 @@ const StyledSpan = styled.span`
         display: block;
         width: 100%;
     }
+    .icon__solid{
+        width: ${(width) => width || '100%'};
+    }
     .gradient-stop--2--1 {
         stop-color: #ff38bb;
     }
@@ -34,10 +37,57 @@ const StyledSpan = styled.span`
         left: 0;
         will-change: filter;
     }
-`;
-function Svg({hov, hove, arrowUpRight, arrowLeft, arrowRight, plus}){
+    @media screen and (max-width: 768px){
+        .icon__blur {
+            opacity: ${({nohover}) => nohover? 0 : 1};
+        }
+    }
+    `;
+function Svg({hov, hove, arrowUpRight, arrowLeft, arrowRight, plus, minus, width, nohover}){
     return(
-        <StyledSpan hovered={hov} hove={hove} className="arrow-button__icon icon--arrow">
+        <StyledSpan hovered={hov} hove={hove} className="arrow-button__icon icon--arrow" width={width} nohover={nohover}>
+            {minus && <span>
+                <span className="icon__solid">
+                    <svg width="46" height="47" viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon__solid-icon">
+                        <path d="M13.7083 23.4881H32.0083M45 23.4881C45 35.6321 35.1503 45.4767 23 45.4767C10.8497 45.4767 1 35.6321 1 23.4881C1 11.3441 10.8497 1.49951 23 1.49951C35.1503 1.49951 45 11.3441 45 23.4881Z" stroke="url(#svg-id-7741.299961585866)" strokeWidth="1.5"></path>
+                        <defs>
+                            <linearGradient id="svg-id-7741.299961585866" x1="28.5995" y1="1.49915" x2="28.6041" y2="45.4767" gradientUnits="userSpaceOnUse">
+                                <stop offset="0.0457092" className="gradient-stop--2--1"></stop>
+                                <stop offset="0.554765" className="gradient-stop--2--2"></stop>
+                                <stop offset="0.864583" className="gradient-stop--2--3"></stop>
+                                <stop offset="1" className="gradient-stop--2--4"></stop>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </span>
+                <span className="icon__blur">
+                    <svg width="46" height="47" viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon__blur-icon">
+                        <path d="M13.7083 23.4881H32.0083M45 23.4881C45 35.6321 35.1503 45.4767 23 45.4767C10.8497 45.4767 1 35.6321 1 23.4881C1 11.3441 10.8497 1.49951 23 1.49951C35.1503 1.49951 45 11.3441 45 23.4881Z" stroke="url(#svg-id-8308.545275629758)" strokeWidth="1.5"></path>
+                        <defs>
+                            <linearGradient id="svg-id-8308.545275629758" x1="28.5995" y1="1.49915" x2="28.6041" y2="45.4767" gradientUnits="userSpaceOnUse">
+                                <stop offset="0.0457092" className="gradient-stop--2--1"></stop>
+                                <stop offset="0.554765" className="gradient-stop--2--2"></stop>
+                                <stop offset="0.864583" className="gradient-stop--2--3"></stop>
+                                <stop offset="1" className="gradient-stop--2--4"></stop>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </span>
+                <span className="icon__blur">
+                    <svg width="46" height="47" viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon__blur-icon">
+                        <path d="M13.7083 23.4881H32.0083M45 23.4881C45 35.6321 35.1503 45.4767 23 45.4767C10.8497 45.4767 1 35.6321 1 23.4881C1 11.3441 10.8497 1.49951 23 1.49951C35.1503 1.49951 45 11.3441 45 23.4881Z" stroke="url(#svg-id-6013.543062978329)" strokeWidth="1.5"></path>
+                        <defs>
+                            <linearGradient id="svg-id-6013.543062978329" x1="28.5995" y1="1.49915" x2="28.6041" y2="45.4767" gradientUnits="userSpaceOnUse">
+                                <stop offset="0.0457092" className="gradient-stop--2--1"></stop>
+                                <stop offset="0.554765" className="gradient-stop--2--2"></stop>
+                                <stop offset="0.864583" className="gradient-stop--2--3"></stop>
+                                <stop offset="1" className="gradient-stop--2--4"></stop>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+
+                </span>
+            </span>}
             {arrowUpRight && <span>
                 <span className="icon__solid">
                     <svg className="icon__solid-icon" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -38,7 +38,7 @@ const StyledSection = styled.section`
         font-size: 14px;
         line-height: 21px;
         color:  ${({color}) => color || '#0c0c0c'};
-        font-family: FreeSansMedium, sans-serif;
+        font-family: neue-haas-grot-text, sans-serif;
         font-weight: 400;
     }
     .cta__heading {
@@ -49,23 +49,15 @@ const StyledSection = styled.section`
         margin: 0;
     }
     .cta__heading, .cta__kicker {
-        font-family: FreeSansMedium,sans-serif;
+        font-family: neue-haas-grot-text,sans-serif;
     }
     .cta__kicker {
         line-height: 1.2;
         font-size: 1.4rem;
-        font-weight: 600;
+        font-weight: 500;
         letter-spacing: 0;
     }
-    @media (min-width: 1024px){
-        .cta{
-            padding-right: 8rem;
-        }
-
-        .section--full-image+.section--cta {
-            margin: 12rem 0 16rem;
-        }
-    }
+    
     @media screen and (min-width: 768px){
         padding: ${({nomargin}) => nomargin? '0 var(--content-padding)' : '12rem var(--content-padding) 16rem'};
 
@@ -100,6 +92,15 @@ const StyledSection = styled.section`
         .cta__heading {
             font-size: 3.6rem;
             grid-area: heading;
+        }
+    }
+    @media (min-width: 1024px){
+        .cta{
+            padding-right: 8rem;
+        }
+
+        .section--full-image+.section--cta {
+            margin: 12rem 0 16rem;
         }
     }
 `;

@@ -7,9 +7,9 @@ const StyledDiv = styled.div`
         
     .rotating-text-module__heading{
         line-height: 1;
-        font-family: inherit, serif;
+        font-family: pp-neue-machina-plain, serif;
         font-size: 4.2rem;
-        font-weight: 600;
+        font-weight: 400;
         font-feature-settings: "ss12" on;
         letter-spacing: -.01em;
         text-transform: uppercase;
@@ -29,13 +29,13 @@ const StyledDiv = styled.div`
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
-        font-weight: 600;
+        font-weight: 400;
     }
     .legal-content__modified-at {
         line-height: 1.2;
         font-family: neue-haas-grot-text,sans-serif;
         font-size: 1.4rem;
-        font-weight: 600;
+        font-weight: 500;
         letter-spacing: 0;
         margin: 3rem 0 6rem;
     }

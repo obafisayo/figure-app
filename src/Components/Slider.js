@@ -6,7 +6,7 @@ import useContextState from "../useContextState";
 const SliderButton = styled.button`
     transition: background-size .3s ease-in-out;
     line-height: 1.2;
-    font-family:  ${({ff}) => ff || 'inherit, sans-serif'};
+    font-family:  ${({ff}) => ff || 'pp-neue-machina=plain, sans-serif'};
     font-size: ${({fsz}) => fsz || '1.4rem'};
     font-weight: ${({fw}) => fw || '500'};
     letter-spacing: ${({ls}) => ls || '0'};

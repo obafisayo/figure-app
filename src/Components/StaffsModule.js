@@ -21,7 +21,7 @@ const StyledSection = styled.section`
     }
     .team-module__heading {
         line-height: 1.1;
-        font-family: FreeSansMedium,sans-serif;
+        font-family: neue-haas-grot-text,sans-serif;
         font-size: 2.4rem;
         font-weight: 400;
         letter-spacing: -.01em;
@@ -54,7 +54,7 @@ const StyledSection = styled.section`
     .team-module__filters-nav-button {
         transition: opacity .3s ease-in-out;
         line-height: 1.2;
-        font-family: FreeSansMedium,sans-serif;
+        font-family: neue-haas-grot-text,sans-serif;
         font-size: 1.4rem;
         font-weight: 500;
         letter-spacing: 0;

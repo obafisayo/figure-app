@@ -153,7 +153,7 @@ const StyledHeader = styled.header`
         align-items: center;
         color: #0c0c0c;
         line-height: 1.11;
-        font-family: inherit,serif;
+        font-family: pp-neue-machina-plain,serif;
         font-size: 3.4rem;
         font-weight: 400;
         text-decoration: none;
@@ -169,7 +169,7 @@ const StyledHeader = styled.header`
             position: relative;
             top: -0.1rem;
             margin: 0 2.4rem 0 0;
-            font-family: inherit, serif;
+            font-family: pp-neue-machina-plain, serif;
             font-feature-settings: "ss12" on;
             letter-spacing: 0;
         }
@@ -244,10 +244,10 @@ const StyledHeader = styled.header`
             height: 3.6rem;
             transition:border-color .3s ease-in-out background-color .3s ease-in-out;
             line-height: 1.2;
-            letter-spacing: .001em;
-            font-family: FreeSansBold ,sans-serif;
+            letter-spacing: .01em;
+            font-family: neue-haas-grot-text ,sans-serif;
             font-size: 1.4rem;
-            font-weight: 400;
+            font-weight: 500;
             text-transform: unset;
             background-color: #fff;
             border-color: #fff;
@@ -262,12 +262,12 @@ const StyledHeader = styled.header`
                 display: none;
             }
         }
-        @media screen and (min-width: 1024px){
-            .navigation-toggle__icon {
-                display: none;
-            }
-        }  
     } 
+    @media screen and (min-width: 1024px){
+        .navigation-toggle__icon {
+            display: none;
+        }
+    }  
 `;
 
 function Navbar(){
@@ -280,6 +280,11 @@ function Navbar(){
         toggleRefEl.classList.toggle('is-active')
         navRefEl.classList.toggle('is-mobile-navigation-active')
         document.body.classList.toggle('is-unscrollable')
+        document.body.classList.toggle('.is-navigation-active')
+        const masterdiv = document.querySelector('.rich-text-page-content__side-nav-container')
+        if (masterdiv){
+            masterdiv.classList.toggle('not-active')
+        }
     }
     
     function newhandleClick(){

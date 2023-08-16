@@ -26,7 +26,7 @@ const Custominput = styled.div`
     .custom-input__label-text {
         transition: top .3s ease-in-out,transform .3s ease-in-out,color .3s ease-in-out,font-size .3s ease-in-out;
         line-height: 1.5;
-        font-family: FreeSans;
+        font-family: neue-haas-grot-text;
         font-size: 1.4rem;
         letter-spacing: -.01em;
         position: absolute;
@@ -40,7 +40,7 @@ const Custominput = styled.div`
     .custom-input__input {
         transition: transform .3s ease-in-out;
         line-height: 1.5;
-        font-family: FreeSans, sans-serif;
+        font-family: neue-haas-grot-text, sans-serif;
         font-size: ${({fsz}) => fsz || '1.4rem'};
         letter-spacing: -.01em;
         display: block;

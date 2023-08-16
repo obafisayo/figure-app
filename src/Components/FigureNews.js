@@ -44,13 +44,6 @@ const StyledSection = styled.div`
         grid-gap: 2rem;
         gap: 2rem;
     }
-
-    @media screen and (min-width: 1024px) {
-        .news-module__items {
-            grid-template-columns: repeat(4,1fr);
-        }
-    }
-
     @media screen and (min-width: 768px) {
         .section--with-background.section--small-margin {
             padding: 12rem var(--content-padding);
@@ -64,6 +57,15 @@ const StyledSection = styled.div`
         .news-module__heading {
             font-size: 3.6rem;
             margin: 0 0 16rem;
+        }
+        .news-module__items {
+            grid-template-columns: repeat(2,1fr);
+        }
+    
+    }
+    @media screen and (min-width: 1024px) {
+        .news-module__items {
+            grid-template-columns: repeat(4,1fr);
         }
     }
 `;

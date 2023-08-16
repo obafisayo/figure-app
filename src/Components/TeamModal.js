@@ -17,7 +17,7 @@ const StyledDiv = styled.div`
     }
     .team-modal__heading {
         line-height: 1.5;
-        font-family: FreeSans,sans-serif;
+        font-family: neue-haas-grot-text,sans-serif;
         font-size: 1.8rem;
         font-weight: 400;
         letter-spacing: -.01em;
@@ -26,7 +26,7 @@ const StyledDiv = styled.div`
     }
     .team-modal__title {
         line-height: 1.11;
-        font-family: NeueMachina-Regular,serif;
+        font-family: pp-neue-machina-plain,serif;
         font-feature-settings: "ss12" on;
         font-size: 3.4rem;
         font-weight: 400;
@@ -54,7 +54,7 @@ const StyledDiv = styled.div`
     .team-modal__bio {
         margin: 0;
         white-space: pre-line;
-        font-family: FreeSansMedium, serif;
+        font-family: neue-haas-grot-text, serif;
         font-weight: 500;
     }
     .locator{

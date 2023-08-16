@@ -22,14 +22,14 @@ const StyledSection = styled.section`
     }
     .values-module__kicker {
         line-height: 1.2;
-        font-family: FreeSans,sans-serif;
+        font-family: neue-haas-grot-text,sans-serif;
         font-size: 1.4rem;
         font-weight: 500;
         letter-spacing: 0;
     }
     .values-module__heading {
         line-height: 1.1;
-        font-family: FreeSans,sans-serif;
+        font-family: neue-haas-grot-text,sans-serif;
         font-size: 2.4rem;
         font-weight: 400;
         letter-spacing: -.01em;
@@ -70,7 +70,7 @@ function ValuesModule() {
                 </ol>
                 <div className="values-module__cta">
                     <Link to="/culture" >
-                        <Totop component={<Slider text={'Dive deeper into our culture'} icon arrowUpRight light slide bordercolor={'white'} ff={'FreeSans, sans-serif'}/>}/>
+                        <Totop component={<Slider text={'Dive deeper into our culture'} icon arrowUpRight light slide bordercolor={'white'} ff={'neue-haas-grot-text, sans-serif'}/>}/>
                     </Link>
                 </div>
             </div>
