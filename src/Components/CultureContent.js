@@ -70,12 +70,6 @@ const StyledDiv = styled.div`
         top: -15rem;
         left: 0;
     }
-    .rich-text-inline-static-timeline, .rich-text-ol li, .rich-text-ul li {
-        margin: 3rem 0;
-    }
-    .rich-text-ol, .rich-text-ul {
-        padding-left: 2.4rem;
-    }
     .rich-text-inline-accordion {
         margin: 5rem 0;
     }

@@ -63,6 +63,10 @@ body {
 body.is-unscrollable {
   overflow: hidden;
 }
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
 .number__primary-links {
   counter-reset: footer-primary-links-counter;
 }
@@ -96,6 +100,9 @@ body.is-unscrollable {
 }
 .section--small-margin {
   margin: 6rem 0;
+}
+.section--dark+.section--dark, .section--tan+.section--tan {
+  padding-top: 0;
 }
 .section__anchor {
   position: absolute;

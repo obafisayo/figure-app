@@ -8,9 +8,6 @@ const StyledSection = styled.section`
     padding: ${({nomargin}) => nomargin? '0 var(--content-padding)' : '4rem var(--content-padding) 8rem'};
     color:  ${({color}) => color || '#0c0c0c'};
 
-    .section--full-image+.section--cta {
-        margin: 4rem 0 8rem;
-    }
     .section__anchor {
         position: absolute;
         top: -7.2rem;
@@ -28,7 +25,7 @@ const StyledSection = styled.section`
         flex-direction: column;
         gap: ${({nomargin}) => nomargin? "0" : '2rem'};
         width: 100%;
-        max-width: 57.2rem;
+        max-width: ${({ppeff}) => ppeff? "70.2rem" : '57.2rem'};
     }
     .cta__description {
         margin: 0;
@@ -42,14 +39,14 @@ const StyledSection = styled.section`
         font-weight: 400;
     }
     .cta__heading {
-        line-height: 1.1;
-        font-size: 2.4rem;
+        line-height: ${({headerfsz}) => headerfsz? "1" : "1.1"};
+        font-size: ${({headerfsz}) => headerfsz? "4.2rem" : "2.4rem"};
         font-weight: 400;
         letter-spacing: -.01em;
         margin: 0;
     }
     .cta__heading, .cta__kicker {
-        font-family: neue-haas-grot-text,sans-serif;
+        font-family:  ${({ppeff}) => ppeff? 'pp-neue-machina-plain' : 'neue-haas-grot-text, sans-serif'};
     }
     .cta__kicker {
         line-height: 1.2;
@@ -60,15 +57,16 @@ const StyledSection = styled.section`
     
     @media screen and (min-width: 768px){
         padding: ${({nomargin}) => nomargin? '0 var(--content-padding)' : '12rem var(--content-padding) 16rem'};
+        padding: ${({ppeff}) => ppeff? '16rem var(--content-padding) ' : '12rem var(--content-padding) 16rem'};
 
         .section__anchor {
             top: -12.8rem;
         }
         .cta__content {
             display: grid;
-            grid-template:
+            grid-template: 
                 "heading description" auto
-                "cta description" 1fr/1fr 1fr;
+                "cta description" ${({ppeff}) => ppeff? '2fr/2fr 1.2fr' : '1fr/1fr 1fr'};
             grid-gap: 3rem;
             gap: 3rem;
         }
@@ -83,30 +81,29 @@ const StyledSection = styled.section`
             row-gap: ${({paragraph2}) => paragraph2? '20px' : ""};
         }
         .cta__description{
-            font-size: 16px;
+            font-size: 1.6rem;
             line-height: 24px;
         }
         .cta__cta {
             grid-area: cta;
         }
         .cta__heading {
-            font-size: 3.6rem;
+            font-size:  ${({headerfsz}) => headerfsz || "3.6rem"};
             grid-area: heading;
         }
     }
     @media (min-width: 1024px){
         .cta{
-            padding-right: 8rem;
+            padding-right: ${({ppeff}) => ppeff? '0' : "8rem"};
         }
-
-        .section--full-image+.section--cta {
-            margin: 12rem 0 16rem;
+        .cta__description{
+            max-width: ${({ppeff}) => ppeff? '100%' : ""};
         }
     }
 `;
-function ShortText({header, paragraph, to, bt, paragraph2, kicker, bcc, nomargin, color}) {
+function ShortText({header, paragraph, to, bt, paragraph2, kicker, bcc, nomargin, color, headerfsz, ppeff}) {
     return(
-        <StyledSection bcc={bcc} paragraph2={paragraph2} nomargin={nomargin} color={color}>
+        <StyledSection bcc={bcc} paragraph2={paragraph2} nomargin={nomargin} color={color} headerfsz={headerfsz} ppeff={ppeff}>
             <div className="cta">
                 <div id="were-engineering-the-humanoid-to-make-humans-capable-of-more" className="section__anchor"></div>
                 <div className="cta__content">

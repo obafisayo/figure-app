@@ -26,20 +26,21 @@ const SliderButton = styled.button`
 
     ::after{
         content: '';
+        height: 1px;
         transition: width .3s ease-in-out;
         position: absolute;
-        bottom: 0px; left: 0;
+        bottom: 0px; left: 0; 
+        top: ${({pri}) => pri ? '4.8rem' : ''};
         width: ${({hovered}) => hovered ? '100%' : '0'};
         border-bottom: ${({height}) => height || '1px'} solid ${({bordercolor}) => bordercolor || 'black'};
     }
     :hover::after{
         width: ${({slide}) => slide ? '100%' : '0'};
-        /* ${({hovered}) => hovered ? 'width: 100%;' : 'width: 0;'} */
     }
     @media screen and (max-width: 860px) {
         font-size: ${({mfsz, fsz}) => mfsz || fsz};
         :hover::after{
-            ${({unslide}) => unslide ? 'width: 0;' : 'width: 100;'}
+            ${({unslide}) => unslide ? 'width: 0;' : 'width: 100%;'}
         }
         ::after{
             width: ${({unslide}) => unslide ? '0' : '0'};
@@ -48,10 +49,10 @@ const SliderButton = styled.button`
     }
 `;
 
-function Slider({news, text, icon, plus, arrowUpRight, arrowLeft, arrowRight, slide, ls, fsz, mfsz, fw, height, hovered, unslide, light, bordercolor, ff, sb }) {
+function Slider({news, text, icon, plus, arrowUpRight, arrowLeft, arrowRight, slide, ls, fsz, mfsz, fw, height, hovered, unslide, light, bordercolor, ff, sb, pri }) {
     const {hover, onLeave, onEnter} = useContextState()
     return(
-        <SliderButton ff={ff} news={news} unslide={unslide} slide={slide} fsz={fsz} fw={fw} mfsz={mfsz} ls={ls} height={height} onMouseEnter={onEnter} onMouseLeave={onLeave} hovered={hovered} light={light} bordercolor={bordercolor} sb={sb}>
+        <SliderButton pri={pri} ff={ff} news={news} unslide={unslide} slide={slide} fsz={fsz} fw={fw} mfsz={mfsz} ls={ls} height={height} onMouseEnter={onEnter} onMouseLeave={onLeave} hovered={hovered} light={light} bordercolor={bordercolor} sb={sb}>
             {text}
             { icon && plus && <Svg plus hov={hover}/>}
             { icon && arrowUpRight && <Svg arrowUpRight hov={hover} hove={hovered}/>}

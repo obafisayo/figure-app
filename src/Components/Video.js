@@ -3,6 +3,11 @@ import styled from "styled-components";
 import NewsletterMail from "./NewslettetMail";
 import Slider from "./Slider";
 import { useRef, useEffect, useState } from "react";
+import figureHr1 from "../assets/Figure_HR_Webvideo_16x9_FirstFrame1.webp"
+import figureHr2 from "../assets/Figure_HR_Webvideo_9x16_FirstFrame1.webp"
+import figureMaster1 from "../assets/Figure_Master_NoLines_Desktop.webp"
+import figureMaster2 from "../assets/Figure_Master_NoLines_Mobile__2___1_.png"
+import Button from "./Button";
 
 const StyledVideo = styled.section`
     display: block;
@@ -19,10 +24,11 @@ const StyledVideo = styled.section`
         display: flex;
         flex-direction: column;
     }
-    .hero__content:before {
+    .hero__content::before {
         content: "";
         position: absolute;
         top: 0;
+        /* bottom: ${({career}) => career ? 'auto' : ''}; */
         right: 0;
         left: 0;
         display: block;
@@ -31,6 +37,9 @@ const StyledVideo = styled.section`
         background: linear-gradient(180deg,#000 14%,transparent 88%);
         opacity: .6;
         z-index: 5;
+    }
+    .hero__loader-image {
+        z-index: 2;
     }
     .hero__loader-image, .hero__video {
         position: absolute;
@@ -53,6 +62,11 @@ const StyledVideo = styled.section`
         z-index: 10;
         justify-content: flex-end;
     }
+    .hero--layout-2 .hero__main {
+        height: 100%;
+        justify-content: space-between;
+        max-width: 61rem;
+    }
     .hero__heading {
         line-height: 1.1;
         font-family: neue-haas-grot-text,sans-serif;
@@ -61,6 +75,16 @@ const StyledVideo = styled.section`
         letter-spacing: -.01em;
         margin: 0;
         color: #fff;
+    }
+    .hero--layout-2 .hero__heading {
+        line-height: 1.11;
+        font-family: pp-neue-machina-plain,serif;
+        font-feature-settings: "ss12" on;
+        font-size: 3.4rem;
+        font-weight: 400;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        margin-bottom: 1.3rem;
     }
     .hero__newsletter {
         display: flex;
@@ -72,10 +96,16 @@ const StyledVideo = styled.section`
         width: calc(100% + var(--content-padding)*2);
         margin-top: auto;
     }
+    .hero--layout-2 .hero__newsletter {
+        background-color: #0c0c0c;
+    }
     .hero__actions {
         display: flex;
         align-items: center;
         gap: 1rem;
+    }
+    .hero--layout-2 .hero__actions {
+        margin-bottom: 2rem;
     }
     .hero__video-toggle {
         position: relative;
@@ -123,7 +153,7 @@ const StyledVideo = styled.section`
         opacity: 0;
         visibility: hidden;
     }
-    .hero__icon-pause:after, .hero__icon-pause:before {
+    .hero__icon-pause:after, .hero__icon-pause::before {
         content: "";
         display: block;
         width: 0.1rem;
@@ -188,11 +218,14 @@ const StyledVideo = styled.section`
             flex-direction: row;
             justify-content: space-between;
         }
-        .hero__content:before {
+        .hero__content::before {
             height: 46rem;
-            top: unset;
-            bottom: 0;
-            background: linear-gradient(0deg,#000 24%,transparent 72%);
+            /* top: unset; */
+            top: ${({career}) => career ? '0' : 'unset'};
+            /* bottom: 0; */
+            bottom: ${({career}) => career ? 'auto' : '0'};
+            background:  ${({career}) => career ? 'background: linear-gradient(180deg,#000 14%,transparent 88%)' : 'linear-gradient(0deg,#000 24%,transparent 72%)'};
+            /* background: linear-gradient(0deg,#000 24%,transparent 72%); */
         }
         .hero__main {
             gap: 3.4rem;
@@ -208,22 +241,40 @@ const StyledVideo = styled.section`
             align-self: flex-end;
             border-radius: 0.8rem;
         }
+        .hero--layout-2 .hero__newsletter {
+            background-color: hsla(0,0%,5%,.4);
+        }
         .hero__actions {
             gap: 2.8rem;
+        }
+        .hero--layout-2 .hero__actions {
+            margin-bottom: 0;
+        }
+        .hero--layout-2 .hero__heading {
+            font-size: 5.2rem;
+            font-size: 3rem;
+        }
+    
+    }
+    @media screen and (min-width: 1024px) {
+        .hero--layout-2 .hero__heading {
+            font-size: 5.2rem;
         }
     }
 `;
 
-function Video({videotobeshown}) {
+function Video({videotobeshown, notNeeded, career, heading, slideText, button}) {
     const playMode = useRef(null);
     const progressRef = useRef(null);
     const videoRef = useRef(null);
 
     const [isPlaying, setIsPlaying] = useState(true);
+    const [showpicture, setShowPicture] = useState(true);
 
     function handleToggle() {
         if (isPlaying) {
             videoRef.current.pause();
+            
           } else {
             videoRef.current.play();
           }
@@ -240,13 +291,13 @@ function Video({videotobeshown}) {
 
         video.muted = true;
 
-        // event listener to restart the video when it ends
         video.addEventListener('ended', () => {
             video.play();
 
         });
         video.addEventListener('playing', () => {
             playModeEl.classList.add('is-playing')
+            setShowPicture(false)
 
         });
         video.addEventListener('pause', () => {
@@ -254,7 +305,6 @@ function Video({videotobeshown}) {
 
         });
 
-        // Clean up event listeners when the component unmounts
         return () => {
             video.removeEventListener('ended', () => {
                 video.play();
@@ -299,16 +349,33 @@ function Video({videotobeshown}) {
         playmodeEl.classList.remove('is-hovering')
         progressRefEl.classList.remove('is-hovering')
     }
-
+    const whichPicture = career? figureHr1 : figureMaster1
+    const whichPicture1 = career? figureHr2 : figureMaster2
+    notNeeded = <div className="tt">{videoDuration}{currentVideoTime}</div>
+    const classnames = career? 'hero--layout-2 hero__content' : 'hero__content'
     return(
-        <StyledVideo>
-            <div className="hero__content">
-              <div className="tt">{videoDuration}{currentVideoTime}</div>
-                <video className="hero__video" src={videotobeshown} ref={videoRef} onLoadedMetadata={handleLoadedMetadata} onTimeUpdate={handleTimeUpdate}
-                    aria-label="Figure is the first-of-its-kind AI robotics company bringing a general purpose humanoid to life.">
+        <StyledVideo career={career}>
+            <div className={classnames}>
+                {showpicture && <picture className="hero__loader-image">
+                <source srcSet={whichPicture} media="(min-width: 768px)"/>
+                <img className="hero__loader-image" src={whichPicture1} width="750" height="1624" alt="Figure HR Webvideo 9x16 FirstFrame1"/>
+                </picture>}
+                <video className="hero__video" src={videotobeshown} ref={videoRef} onLoadedMetadata={handleLoadedMetadata} onTimeUpdate={handleTimeUpdate} loop playsInline
+                    aria-label={heading}>
                 </video>
                 <div className="hero__main">
-                    <h1 className="hero__heading">Figure is the first-of-its-kind AI robotics company bringing a general purpose humanoid to life.</h1>
+                    {career? 
+                        <div className="hero__heading-cta-container">
+                            <h1 className="hero__heading">{heading}</h1>
+                            {button && 
+                                <a href="/careers#careers-listing">
+                                    <Button text={'See all open roles'} arrowdown/>
+                                </a>
+                            } 
+                        </div> 
+                        :
+                        <h1 className="hero__heading">{heading}</h1>
+                    }
                     <div className="hero__actions">
                         <button className="hero__video-toggle" onClick={handleToggle} ref={playMode} onMouseEnter={handleEnter} onMouseLeave={handleLeave} aria-label={isPlaying ? "pause video" : "play video"} fdprocessedid="5jcqnc">
                             <svg className="hero-video-progress" ref={progressRef} width="53" height="53" viewBox="0 0 53 53">
@@ -377,13 +444,13 @@ function Video({videotobeshown}) {
                                 <rect mask="url(#svg-id-3161.2831055466663-mask)" width="16" height="18" fill="url(#svg-id-3161.2831055466663"></rect>
                             </svg>
                         </button>
-                        <a target="_blank"  rel="noreferrer" href="https://www.youtube.com/watch?v=b37rQZ4maPo">
+                        {slideText && <a target="_blank"  rel="noreferrer" href="https://www.youtube.com/watch?v=b37rQZ4maPo">
                             <Slider text={'Watch the full video'} icon arrowUpRight light slide bordercolor={'white'} ff={'FreeSans, sans-serif'}/>
-                        </a>
+                        </a>}
                     </div>
                 </div>
                 <div className="hero__newsletter">
-                    <NewsletterMail background={'hsla(0,0%,5%,.4)'} color={'white'}/>
+                    <NewsletterMail background={'hsla(0,0%,5%,.4)'} color={'white'} paddingLeft medianewsletterHeading={'1.6rem'} newsletterHeading={'1.4rem'} newsletterDes={'1.4rem'}/>
                 </div>
             </div>
         </StyledVideo>

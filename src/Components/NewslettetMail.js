@@ -22,25 +22,25 @@ const Newsletter = styled.section`
         border-radius: 5px;
     }
 
-    .footer__newsletter-heading {
+    .newsletter-heading {
         line-height: 1.5;
         font-family: neue-haas-grot-text, sans-serif;
-        font-size: 1.9rem;
+        font-size:  ${({newsletterHeading}) => newsletterHeading || '1.9rem'};
         font-weight: 400;
         letter-spacing: -.01em;
         margin: 0 0 0.8rem;
     }
-    .footer__newsletter-description {
+    .newsletter-description {
         margin: 0 0 2.4rem;
         font-family: neue-haas-grot-text, sans-serif;
-        font-size: 1.7rem;
+        font-size: ${({newsletterDes}) => newsletterDes || '1.6rem'};
         font-weight: 400;
     }
     .newsletter-form {
         width: 100%;
         min-width: 30rem;
     }
-    .footer__newsletter-component {
+    .newsletter-component {
     margin: 2.4rem 0 0;
     }
     .newsletter-form {
@@ -52,21 +52,21 @@ const Newsletter = styled.section`
     margin-top: 0em;
     }
     @media screen and (min-width: 768px) {
-        .footer__newsletter-heading {
+        .newsletter-heading {
             line-height: 1.1;
-            font-size: 2.2rem;
+            font-size:  ${({medianewsletterHeading}) => medianewsletterHeading || '2.2rem'};
         }
     }
 `;
-function NewsletterMail({background, icon, paddingLeft, fsz, width, color}) {
+function NewsletterMail({background, icon, paddingLeft, fsz, width, color, newsletterHeading, medianewsletterHeading, newsletterDes}) {
     return (
         <>
-            <Newsletter width={width} background={background} paddingLeft={paddingLeft} color={color} className="footer__newsletter-container">
-                <h1 className="footer__newsletter-heading">Keep up with us.</h1>
-                <p className="footer__newsletter-description">Get news, photos, events, and business updates</p>
-                <form className="newsletter-form footer__newsletter-component" aria-label="Subscribe to newsletter">
+            <Newsletter width={width} background={background} paddingLeft={paddingLeft} color={color} newsletterHeading={newsletterHeading} medianewsletterHeading={medianewsletterHeading} newsletterDes={newsletterDes} className="footer__newsletter-container">
+                <h1 className="newsletter-heading">Keep up with us.</h1>
+                <p className="newsletter-description">Get news, photos, events, and business updates</p>
+                <form className="newsletter-form newsletter-component" aria-label="Subscribe to newsletter">
                     <InputComponent input fsz={fsz} text={'Email Address'} button={<Button fsz={fsz} text={'Sign Up'}/>} type={'email'}/>
-                    <p id="footernewsletter-newsletter-form" className="newsletter-form__description" aria-live="polite"></p>
+                    <p id="newsletter-newsletter-form" className="newsletter-form__description" aria-live="polite"></p>
                     {icon}
                 </form>
             </Newsletter>

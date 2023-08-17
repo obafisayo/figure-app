@@ -84,7 +84,7 @@ function PrimaryLinks({title, text, icon, paddingTop, borderBottom, borderTop, s
         setHover(false)
     }
     
-    const thereisSliderSlide =  <Slider ls={ls} mfsz={mfsz} hovered={hoverIt || hover} fsz={fsz} fw={fw} height={height} unslide={unslide} slide text={text} ff={'pp-neue-machina-plain'}/> 
+    const thereisSliderSlide =  <Slider pri ls={ls} mfsz={mfsz} hovered={hoverIt || hover} fsz={fsz} fw={fw} height={height} unslide={unslide} slide text={text} ff={'pp-neue-machina-plain'}/> 
     const thereNoHover =  <Slider mfsz={mfsz} fsz={'3.4rem'} fw={'400'} height={'2px'} text={text} /> 
     const thereisIcon = <S>{thereisSliderSlide} <Svg hov={hover} plus /> </S>
 

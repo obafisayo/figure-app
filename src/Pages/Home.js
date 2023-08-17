@@ -30,7 +30,7 @@ function Home() {
 
   return (
     <StyledMain>
-        <EnteredDiv showLeaveFunction element={<Video videotobeshown={aiVideo}/>} threshold={0} whenDivIsentered={homeIsEntered} whenYouLeaveDiv={homeIsLeft}/>
+        <EnteredDiv showLeaveFunction element={<Video slideText heading={'Figure is the first-of-its-kind AI robotics company bringing a general purpose humanoid to life.'} videotobeshown={aiVideo}/>} threshold={0} whenDivIsentered={homeIsEntered} whenYouLeaveDiv={homeIsLeft}/>
         <TextLoader/>
         <Image img1={Humanoid_walking_tall} img2={Humanoid_walking}/>
         <ShortText to={"/master-plan"} bt={"See our Master Plan"} 

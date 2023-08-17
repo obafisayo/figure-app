@@ -2,12 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Totop from "./Totop";
+import arrowDown from "../assets/arrow-down.svg"
 
 const StyledButton = styled.button`
     line-height: 1.2;
     font-family: ${({mff}) => mff || 'neue-haas-grot-text'};
     font-size: ${({fsz}) => fsz || '1.4rem'};
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0;
     transition: background-color 0.3s ease-in-out;
     display: inline-flex;
@@ -32,8 +33,12 @@ const StyledButton = styled.button`
         text-decoration: none;
         color: #0c0c0c;
         font-size: ${({fsz}) => fsz || '1.4rem'};
-        font-weight: 400;
+        font-weight: 500;
         font-family: ${({mff}) => mff || 'neue-haas-grot-text'};
+    }
+     .button__icon {
+        margin-left: 1rem;
+        width: 1.3rem;
     }
     :hover{
         transition: all 0.4s ease-in-out;
@@ -47,7 +52,7 @@ const StyledButton = styled.button`
         }
     }
 `;
-function Button({text, fsz, width, to, link, mff}) {
+function Button({text, fsz, width, to, link, mff, arrowdown}) {
     return (
         <StyledButton width={width} fsz={fsz} mff={mff}>
             {link?  
@@ -55,6 +60,7 @@ function Button({text, fsz, width, to, link, mff}) {
                  : 
                  `${text}`
             }
+            {arrowdown && <img alt="" src={arrowDown} width="16" height="15" decoding="async" data-nimg="1" className="button__icon" loading="lazy" style={{color: 'transparent'}}></img>}
         </StyledButton>
     )
 }

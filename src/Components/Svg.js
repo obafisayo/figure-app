@@ -6,7 +6,7 @@ const StyledSpan = styled.span`
     display: inline-block;
     margin-left: 1.2rem;
     
-    .arrow-button__icon {
+    .button__icon {
     width: 1.4rem;
     }
     .icon__blur, .icon__solid, .icon__solid-icon {
@@ -43,9 +43,9 @@ const StyledSpan = styled.span`
         }
     }
     `;
-function Svg({hov, hove, arrowUpRight, arrowLeft, arrowRight, plus, minus, width, nohover}){
+function Svg({hov, hove, arrowUpRight, arrowLeft, arrowRight, plus, minus, width, nohover, caree}){
     return(
-        <StyledSpan hovered={hov} hove={hove} className="arrow-button__icon icon--arrow" width={width} nohover={nohover}>
+        <StyledSpan hovered={hov} hove={hove} className="button__icon icon" width={width} caree={caree} nohover={nohover}>
             {minus && <span>
                 <span className="icon__solid">
                     <svg width="46" height="47" viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon__solid-icon">

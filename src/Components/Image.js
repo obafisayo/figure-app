@@ -2,9 +2,8 @@ import React from "react";
 import styled from "styled-components";
 const StyledSection = styled.div`
     position: relative;
-    :not(.section--dark,.section--tan)+.section--full-image {
-        margin-top: 4rem;
-    }
+    margin-top: ${({marginTop}) => marginTop ? '4rem' : '0'};
+
     .full-image__image {
         width: 100%;
         height: 125vw;
@@ -13,9 +12,7 @@ const StyledSection = styled.div`
         object-fit: cover;
     }
 @media screen and (min-width: 768px){
-    :not(.section--dark,.section--tan)+.section--full-image {
-        margin-top: 8rem;
-    }
+    margin-top: ${({marginTop}) => marginTop ? '8rem' : '0'};
     .full-image__image {
         aspect-ratio: 2000/1000;
         height: 50vw;
@@ -24,9 +21,9 @@ const StyledSection = styled.div`
     }
 }
 `;
-function Image({img1, img2}) {
+function Image({img1, img2, marginTop}) {
     return(
-        <StyledSection>
+        <StyledSection marginTop={marginTop}>
             <div id="image-were-engineering-the-humanoid-to-make-humans-capable-of-more" className="section__anchor"></div>
             <picture>
                 <source srcSet={img2} media="(min-width: 1440px)"/>
