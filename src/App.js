@@ -32,7 +32,7 @@ function App() {
 
   return (
     <>
-      {<Navbar/>}
+      <Navbar/>
       <Routes>
           <Route path="/" element={<EnteredDiv element={<Home/>} threshold={0} whenDivIsentered={() => removeAndAdd(true, false, true, false, true, false, true, false, true, false)}/>} />
           <Route path="/about-us" element={<EnteredDiv element={<About/>} threshold={0} whenDivIsentered={() => removeAndAdd(false, true, false, true, true, false, true, false, true, false)}/>} />
